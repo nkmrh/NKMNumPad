@@ -1,13 +1,13 @@
 //
-//  ViewController.h
-//  HuwaHuwa
+//  NKMNumPadView.h
+//  
 //
 //  Created by hajime-nakamura on 6/11/14.
 //  Copyright (c) 2014 hajime-nakamura. All rights reserved.
 //
 
-#import <GLKit/GLkit.h>
+@interface NKMNumPadView : UIView
 
-@interface ViewController : UIViewController
+@property(nonatomic) NSArray *points;
 
 @end

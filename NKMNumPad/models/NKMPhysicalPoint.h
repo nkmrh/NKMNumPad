@@ -1,14 +1,12 @@
 //
-//  PhysicalPoint.h
-//  HuwaHuwa
+//  NKMPhysicalPoint.h
+//  
 //
 //  Created by hajime-nakamura on 6/11/14.
 //  Copyright (c) 2014 hajime-nakamura. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
-@interface PhysicalPoint : NSObject
+@interface NKMPhysicalPoint : NSObject
 
 @property(nonatomic) CGFloat speedX;
 @property(nonatomic) CGFloat speedY;

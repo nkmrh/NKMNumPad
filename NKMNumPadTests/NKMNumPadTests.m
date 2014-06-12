@@ -8,11 +8,11 @@
 
 #import <XCTest/XCTest.h>
 
-@interface HuwaHuwaTests : XCTestCase
+@interface NKMNumPadTests : XCTestCase
 
 @end
 
-@implementation HuwaHuwaTests
+@implementation NKMNumPadTests
 
 - (void)setUp
 {

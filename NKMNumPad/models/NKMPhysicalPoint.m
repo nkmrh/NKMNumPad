@@ -1,14 +1,14 @@
 //
-//  PhysicalPoint.m
-//  HuwaHuwa
+//  NKMPhysicalPoint.m
+//  
 //
 //  Created by hajime-nakamura on 6/11/14.
 //  Copyright (c) 2014 hajime-nakamura. All rights reserved.
 //
 
-#import "PhysicalPoint.h"
+#import "NKMPhysicalPoint.h"
 
-@interface PhysicalPoint () {
+@interface NKMPhysicalPoint () {
   CGFloat _accelerationX;
   CGFloat _accelerationY;
   NSTimeInterval _prevTimeinterval;
@@ -17,7 +17,7 @@
 
 @end
 
-@implementation PhysicalPoint
+@implementation NKMPhysicalPoint
 
 - (instancetype)init {
   return [self initWithPoint:CGPointZero];

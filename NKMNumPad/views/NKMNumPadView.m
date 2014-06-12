@@ -1,15 +1,15 @@
 //
-//  View.m
-//  HuwaHuwa
+//  NKMNumPadView.m
+//  
 //
 //  Created by hajime-nakamura on 6/11/14.
 //  Copyright (c) 2014 hajime-nakamura. All rights reserved.
 //
 
-#import "View.h"
-#import "PhysicalPoint.h"
+#import "NKMNumPadView.h"
+#import "NKMPhysicalPoint.h"
 
-@implementation View
+@implementation NKMNumPadView
 
 - (id)initWithFrame:(CGRect)frame {
   self = [super initWithFrame:frame];
@@ -29,7 +29,7 @@
     CGPoint prevPoint = CGPointZero;
     
   for (int i = 0; i < self.points.count; i++) {
-    PhysicalPoint *point = self.points[i];
+    NKMPhysicalPoint *point = self.points[i];
     CGRect borderRect =
         CGRectMake(point.position.x, point.position.y, 10.0, 10.0);
     CGContextSetRGBFillColor(context, 0.0, 0.0, 0.0, 1.0);

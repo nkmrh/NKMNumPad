@@ -1,14 +1,14 @@
 //
-//  ViewController.m
-//  HuwaHuwa
+//  NKMNumPadViewController.m
+//  
 //
 //  Created by hajime-nakamura on 6/11/14.
 //  Copyright (c) 2014 hajime-nakamura. All rights reserved.
 //
 
-#import "ViewController.h"
-#import "PhysicalPoint.h"
-#import "View.h"
+#import "NKMNumPadViewController.h"
+#import "NKMPhysicalPoint.h"
+#import "NKMNumPadView.h"
 
 CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
   CGFloat dx = point2.x - point1.x;
@@ -16,7 +16,7 @@ CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
   return sqrt(dx * dx + dy * dy);
 };
 
-@interface ViewController () {
+@interface NKMNumPadViewController () {
   NSMutableArray *_points;
   NSMutableArray *_locations;
   NSTimer *_timer;
@@ -25,7 +25,7 @@ CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
 
 @end
 
-@implementation ViewController
+@implementation NKMNumPadViewController
 
 - (void)viewDidLoad {
   [super viewDidLoad];
@@ -46,7 +46,7 @@ CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
       location.y = CGRectGetHeight(self.view.frame) * 0.5 -
                    (col - 1) * 0.5 * interval + i * interval;
 
-      [_points addObject:[[PhysicalPoint alloc] initWithPoint:location]];
+      [_points addObject:[[NKMPhysicalPoint alloc] initWithPoint:location]];
       [_locations addObject:[NSValue valueWithCGPoint:location]];
     }
   }
@@ -57,12 +57,12 @@ CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
                                           userInfo:nil
                                            repeats:YES];
 
-  ((View *)self.view).points = _points;
+  ((NKMNumPadView *)self.view).points = _points;
 }
 
 - (void)_loop:(NSTimer *)timer {
   for (int i = 0; i < _points.count; i++) {
-    PhysicalPoint *point = _points[i];
+    NKMPhysicalPoint *point = _points[i];
 
     CGPoint position = point.position;
     CGPoint location = [_locations[i] CGPointValue];
@@ -81,7 +81,7 @@ CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
     }
   }
     
-  ((View *)self.view).points = _points;
+  ((NKMNumPadView *)self.view).points = _points;
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
