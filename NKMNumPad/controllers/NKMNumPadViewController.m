@@ -109,7 +109,8 @@ CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
   _locations = [NSMutableArray new];
   _touchPoint = CGPointMake(FLT_MAX, FLT_MAX);
 
-  const CGFloat interval = CGRectGetWidth(self.view.bounds) / kNKMNumPadColumnMax;
+  const CGFloat intervalX = CGRectGetWidth(self.view.bounds) / kNKMNumPadColumnMax;
+  const CGFloat intervalY = CGRectGetHeight(self.view.bounds) / kNKMNumPadRowMax;
   const NSInteger col = kNKMNumPadColumnMax + 1;
   const NSInteger row = kNKMNumPadRowMax + 1;
     
@@ -117,9 +118,9 @@ CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
     for (int j = 0; j < col; j++) {
       CGPoint location;
       location.x = CGRectGetWidth(self.view.bounds) * 0.5 -
-                   (col - 1) * 0.5 * interval + j * interval;
+                   (col - 1) * 0.5 * intervalX + j * intervalX;
       location.y = CGRectGetHeight(self.view.bounds) * 0.5 -
-                   (row - 1) * 0.5 * interval + i * interval;
+                   (row - 1) * 0.5 * intervalY + i * intervalY;
 
       [_points addObject:[[NKMPhysicalPoint alloc] initWithPoint:location]];
       [_locations addObject:[NSValue valueWithCGPoint:location]];
