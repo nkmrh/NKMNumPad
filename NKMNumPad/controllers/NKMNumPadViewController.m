@@ -8,41 +8,41 @@
 
 #import "NKMNumPadViewController.h"
 #import "NKMPhysicalPoint.h"
-#import "NKMNumPadView.h"
 
 static const NSInteger kNKMNumPadColumnMax = 3;
 static const NSInteger kNKMNumPadRowMax = 4;
 
 typedef struct {
     float Position[2];
+    float Color[4];
     float TexCoord[2];
 } Vertex;
 
 Vertex vertices[] = {
-    {{-1.5, 0.5}, {0.0, 1.0}},
-    {{-0.5, 0.5}, {0.3, 1.0}},
-    {{0.5, 0.5}, {0.6, 1.0}},
-    {{1.5, 0.5}, {1.0, 1.0}},
+    {{-1.5, 0.5}, {0.0, 0.0, 0.0, 1.0}, {0.0, 1.0}},
+    {{-0.5, 0.5}, {0.0, 0.0, 0.0, 1.0}, {0.3, 1.0}},
+    {{0.5, 0.5}, {0.0, 0.0, 0.0, 1.0}, {0.6, 1.0}},
+    {{1.5, 0.5}, {0.0, 0.0, 0.0, 1.0}, {1.0, 1.0}},
     
-    {{-1.5, -0.5}, {0.0, 0.75}},
-    {{-0.5, -0.5}, {0.3, 0.75}},
-    {{0.5, -0.5}, {0.6, 0.75}},
-    {{1.5, -0.5}, {1.0, 0.75}},
+    {{-1.5, -0.5}, {0.0, 0.0, 0.0, 1.0}, {0.0, 0.75}},
+    {{-0.5, -0.5}, {0.0, 0.0, 0.0, 1.0}, {0.3, 0.75}},
+    {{0.5, -0.5}, {0.0, 0.0, 0.0, 1.0}, {0.6, 0.75}},
+    {{1.5, -0.5}, {0.0, 0.0, 0.0, 1.0}, {1.0, 0.75}},
     
-    {{-1.5, -1.5}, {0.0, 0.5}},
-    {{-0.5, -1.5}, {0.3, 0.5}},
-    {{0.5, -1.5}, {0.6, 0.5}},
-    {{1.5, -1.5}, {1.0, 0.5}},
+    {{-1.5, -1.5}, {0.0, 0.0, 0.0, 1.0}, {0.0, 0.5}},
+    {{-0.5, -1.5}, {0.0, 0.0, 0.0, 1.0}, {0.3, 0.5}},
+    {{0.5, -1.5}, {0.0, 0.0, 0.0, 1.0}, {0.6, 0.5}},
+    {{1.5, -1.5}, {0.0, 0.0, 0.0, 1.0}, {1.0, 0.5}},
     
-    {{-1.5, -2.5}, {0.0, 0.25}},
-    {{-0.5, -2.5}, {0.3, 0.25}},
-    {{0.5, -2.5}, {0.6, 0.25}},
-    {{1.5, -2.5}, {1.0, 0.25}},
+    {{-1.5, -2.5}, {0.0, 0.0, 0.0, 1.0}, {0.0, 0.25}},
+    {{-0.5, -2.5}, {0.0, 0.0, 0.0, 1.0}, {0.3, 0.25}},
+    {{0.5, -2.5}, {0.0, 0.0, 0.0, 1.0}, {0.6, 0.25}},
+    {{1.5, -2.5}, {0.0, 0.0, 0.0, 1.0}, {1.0, 0.25}},
     
-    {{-1.5, -3.5}, {0.0, 0.0}},
-    {{-0.5, -3.5}, {0.3, 0.0}},
-    {{0.5, -3.5}, {0.6, 0.0}},
-    {{1.5, -3.5}, {1.0, 0.0}},
+    {{-1.5, -3.5}, {0.0, 0.0, 0.0, 1.0}, {0.0, 0.0}},
+    {{-0.5, -3.5}, {0.0, 0.0, 0.0, 1.0}, {0.3, 0.0}},
+    {{0.5, -3.5}, {0.0, 0.0, 0.0, 1.0}, {0.6, 0.0}},
+    {{1.5, -3.5}, {0.0, 0.0, 0.0, 1.0}, {1.0, 0.0}},
 };
 
 GLubyte indices[] = {
@@ -85,7 +85,6 @@ CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
 {
   NSMutableArray *_points;
   NSMutableArray *_locations;
-  NSTimer *_timer;
   CGPoint _touchPoint;
     
     
@@ -110,30 +109,22 @@ CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
   _locations = [NSMutableArray new];
   _touchPoint = CGPointMake(FLT_MAX, FLT_MAX);
 
-  const NSInteger interval = 100;
+  const CGFloat interval = CGRectGetWidth(self.view.bounds) / kNKMNumPadColumnMax;
   const NSInteger col = kNKMNumPadColumnMax + 1;
   const NSInteger row = kNKMNumPadRowMax + 1;
-
+    
   for (int i = 0; i < row; i++) {
     for (int j = 0; j < col; j++) {
       CGPoint location;
-      location.x = CGRectGetWidth(self.view.frame) * 0.5 -
+      location.x = CGRectGetWidth(self.view.bounds) * 0.5 -
                    (col - 1) * 0.5 * interval + j * interval;
-      location.y = CGRectGetHeight(self.view.frame) * 0.5 -
+      location.y = CGRectGetHeight(self.view.bounds) * 0.5 -
                    (row - 1) * 0.5 * interval + i * interval;
 
       [_points addObject:[[NKMPhysicalPoint alloc] initWithPoint:location]];
       [_locations addObject:[NSValue valueWithCGPoint:location]];
     }
   }
-
-  _timer = [NSTimer scheduledTimerWithTimeInterval:0.01f
-                                            target:self
-                                          selector:@selector(_loop:)
-                                          userInfo:nil
-                                           repeats:YES];
-
-  ((NKMNumPadView *)self.view).points = _points;
 }
 
 - (void)viewDidUnload {
@@ -160,12 +151,13 @@ CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
     view.delegate = self;
     
     self.effect = [GLKBaseEffect new];
+    self.effect.useConstantColor = GL_FALSE;
     
+#if 0
     NSDictionary * options = [NSDictionary dictionaryWithObjectsAndKeys:
                               [NSNumber numberWithBool:YES],
                               GLKTextureLoaderOriginBottomLeft,
                               nil];
-    
     NSError * error;
     NSString *path = [[NSBundle mainBundle] pathForResource:@"4x4grid" ofType:@"png"];
     GLKTextureInfo * info = [GLKTextureLoader textureWithContentsOfFile:path options:options error:&error];
@@ -173,13 +165,10 @@ CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
         NSLog(@"Error loading file: %@", [error localizedDescription]);
     }
     self.effect.texture2d0.name = info.name;
-    self.effect.texture2d0.enabled = true;
+    self.effect.texture2d0.enabled = GL_TRUE;
+#endif
+    self.effect.transform.projectionMatrix = GLKMatrix4MakeOrtho(CGRectGetMinX(self.view.bounds), CGRectGetMaxX(self.view.bounds), CGRectGetMaxY(self.view.bounds), CGRectGetMinY(self.view.bounds), -1.0f, 1.0f);
     
-    float aspect = fabsf(self.view.bounds.size.width / self.view.bounds.size.height);
-    GLKMatrix4 projectionMatrix = GLKMatrix4MakePerspective(GLKMathDegreesToRadians(65.0f), aspect, 4.0f, 10.0f);
-    self.effect.transform.projectionMatrix = projectionMatrix;
-    GLKMatrix4 modelViewMatrix = GLKMatrix4MakeTranslation(0.0f, 0.0f, -6.0f);
-    self.effect.transform.modelviewMatrix = modelViewMatrix;
 }
 
 - (void)tearDownGL {
@@ -190,30 +179,6 @@ CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
     glDeleteVertexArraysOES(1, &_vertexArray);
     
     self.effect = nil;
-}
-
-- (void)_loop:(NSTimer *)timer {
-  for (int i = 0; i < _points.count; i++) {
-    NKMPhysicalPoint *point = _points[i];
-
-    CGPoint position = point.position;
-    CGPoint location = [_locations[i] CGPointValue];
-
-    [point configureAccelerationXvalue:(location.x - position.x) * 300
-                                Yvalue:(location.y - position.y) * 300];
-
-    CGFloat maxDist = 120.0f;
-    CGFloat dist = DistanceBetweenTwoPoints(position, _touchPoint);
-
-    if (dist < maxDist) {
-      CGFloat par = (maxDist - dist) / maxDist;
-      [point
-          configureAccelerationXvalue:(position.x - _touchPoint.x) * par * 300
-                               Yvalue:(position.y - _touchPoint.y) * par * 300];
-    }
-  }
-    
-  ((NKMNumPadView *)self.view).points = _points;
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -231,12 +196,12 @@ CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    _touchPoint = CGPointMake(FLT_MAX, FLT_MAX);;
+    _touchPoint = CGPointMake(FLT_MAX, FLT_MAX);
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    _touchPoint = CGPointMake(FLT_MAX, FLT_MAX);;
+    _touchPoint = CGPointMake(FLT_MAX, FLT_MAX);
 }
 
 //--------------------------------------------------------------//
@@ -248,19 +213,34 @@ CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
     for (int i = 0; i < _points.count; i++) {
         NKMPhysicalPoint *point = _points[i];
         
-        float px, py;
-        px = (point.position.x - 160) / 160;
-        py = (240 - point.position.y) / 240;
+        CGPoint position = point.position;
+        CGPoint location = [_locations[i] CGPointValue];
         
-        vertices[i].Position[0] = px * 2.0;
-        vertices[i].Position[1] = py * 2.0;
+        [point configureAccelerationXvalue:(location.x - position.x) * 300
+                                    Yvalue:(location.y - position.y) * 300];
+        
+        CGFloat maxDist = 120.0f;
+        CGFloat dist = DistanceBetweenTwoPoints(position, _touchPoint);
+        
+        if (dist < maxDist) {
+            CGFloat par = (maxDist - dist) / maxDist;
+            [point
+             configureAccelerationXvalue:(position.x - _touchPoint.x) * par * 300
+             Yvalue:(position.y - _touchPoint.y) * par * 300];
+        }
+    }
+    
+    for (int i = 0; i < _points.count; i++) {
+        NKMPhysicalPoint *point = _points[i];
+        vertices[i].Position[0] = point.position.x;
+        vertices[i].Position[1] = point.position.y;
     }
 }
 
 //--------------------------------------------------------------//
 #pragma mark -- GLKViewDelegate --
 //--------------------------------------------------------------//
-#if 1
+
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
 {
     glClearColor(0.65f, 0.65f, 0.65f, 1.0f);
@@ -283,14 +263,16 @@ CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
     
     glEnableVertexAttribArray(GLKVertexAttribPosition);
     glVertexAttribPointer(GLKVertexAttribPosition, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid *) offsetof(Vertex, Position));
+    glEnableVertexAttribArray(GLKVertexAttribColor);
+    glVertexAttribPointer(GLKVertexAttribColor, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid *) offsetof(Vertex, Color));
+#if 0
     glEnableVertexAttribArray(GLKVertexAttribTexCoord0);
     glVertexAttribPointer(GLKVertexAttribTexCoord0, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid *) offsetof(Vertex, TexCoord));
-    
-    glBindVertexArrayOES(_vertexArray);
+#endif
     
     [self.effect prepareToDraw];
-    
-    glDrawElements(GL_TRIANGLES , sizeof(indices)/sizeof(indices[0]), GL_UNSIGNED_BYTE , 0);
+//    glDrawElements(GL_TRIANGLES , sizeof(indices)/sizeof(indices[0]), GL_UNSIGNED_BYTE , 0);
+    glDrawElements(GL_LINE_STRIP , sizeof(indices)/sizeof(indices[0]), GL_UNSIGNED_BYTE , 0);
 }
-#endif
+
 @end

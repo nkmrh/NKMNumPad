@@ -12,7 +12,7 @@
                         <viewControllerLayoutGuide type="top" id="6gU-0R-bay"/>
                         <viewControllerLayoutGuide type="bottom" id="X3o-4b-y0e"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS" customClass="NKMNumPadView">
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS" customClass="GLKView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
