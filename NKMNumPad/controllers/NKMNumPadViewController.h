@@ -8,6 +8,6 @@
 
 #import <GLKit/GLkit.h>
 
-@interface NKMNumPadViewController : UIViewController
+@interface NKMNumPadViewController : GLKViewController
 
 @end

@@ -6,7 +6,9 @@
 //  Copyright (c) 2014 hajime-nakamura. All rights reserved.
 //
 
-@interface NKMNumPadView : UIView
+#import <GLKit/GLKit.h>
+
+@interface NKMNumPadView : GLKView
 
 @property(nonatomic) NSArray *points;
 

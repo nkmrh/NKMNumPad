@@ -18,6 +18,7 @@
   return self;
 }
 
+#if 0
 - (void)setPoints:(NSArray *)points {
   _points = points;
   [self setNeedsDisplay];
@@ -48,5 +49,5 @@
     
     
 }
-
+#endif
 @end
