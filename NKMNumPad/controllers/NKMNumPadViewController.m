@@ -421,7 +421,7 @@ CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
         [point configureAccelerationXvalue:(location.x - position.x) * 400
                                     Yvalue:(location.y - position.y) * 400];
         
-        CGFloat maxDist = 95.0f;
+        CGFloat maxDist = 105.0f;
         CGFloat dist = DistanceBetweenTwoPoints(position, _touchPoint);
         
         if (dist < maxDist) {

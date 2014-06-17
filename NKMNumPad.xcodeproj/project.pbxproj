@@ -18,11 +18,11 @@
 		6474BB911947BE9C0014FBF0 /* NKMNumPadTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6474BB901947BE9C0014FBF0 /* NKMNumPadTests.m */; };
 		64CFB2B6194EF5A300D326E9 /* 4x3.png in Resources */ = {isa = PBXBuildFile; fileRef = 64CFB2B5194EF5A300D326E9 /* 4x3.png */; };
 		64CFB2B819510B0F00D326E9 /* 4x3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64CFB2B719510B0F00D326E9 /* 4x3@2x.png */; };
+		64CFB2BB19510C3200D326E9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 64CFB2BA19510C3200D326E9 /* AppDelegate.m */; };
+		64CFB2C419510CEB00D326E9 /* NKMNumPadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64CFB2C319510CEB00D326E9 /* NKMNumPadViewController.m */; };
+		64CFB2C719510CF300D326E9 /* NKMPhysicalPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 64CFB2C619510CF300D326E9 /* NKMPhysicalPoint.m */; };
 		64F6C304194A690F00752E81 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64F6C303194A690F00752E81 /* GLKit.framework */; };
 		64F6C306194A691700752E81 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64F6C305194A691700752E81 /* OpenGLES.framework */; };
-		64F6C30D194A6CD700752E81 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 64F6C30A194A6CD700752E81 /* AppDelegate.m */; };
-		64F6C30E194A6CD700752E81 /* NKMNumPadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64F6C30C194A6CD700752E81 /* NKMNumPadViewController.m */; };
-		64F6C316194A6CF300752E81 /* NKMPhysicalPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 64F6C315194A6CF300752E81 /* NKMPhysicalPoint.m */; };
 		64F6C31A194A6D3B00752E81 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64F6C318194A6D3B00752E81 /* Main.storyboard */; };
 		64F6C31C194A6D4700752E81 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64F6C31B194A6D4700752E81 /* Images.xcassets */; };
 		64F6C31F194A6D6900752E81 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 64F6C31D194A6D6900752E81 /* InfoPlist.strings */; };
@@ -53,14 +53,14 @@
 		6474BB901947BE9C0014FBF0 /* NKMNumPadTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NKMNumPadTests.m; sourceTree = "<group>"; };
 		64CFB2B5194EF5A300D326E9 /* 4x3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 4x3.png; path = resources/images/4x3.png; sourceTree = "<group>"; };
 		64CFB2B719510B0F00D326E9 /* 4x3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "4x3@2x.png"; path = "resources/images/4x3@2x.png"; sourceTree = "<group>"; };
+		64CFB2B919510C3200D326E9 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		64CFB2BA19510C3200D326E9 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		64CFB2C219510CEB00D326E9 /* NKMNumPadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NKMNumPadViewController.h; sourceTree = "<group>"; };
+		64CFB2C319510CEB00D326E9 /* NKMNumPadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NKMNumPadViewController.m; sourceTree = "<group>"; };
+		64CFB2C519510CF300D326E9 /* NKMPhysicalPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NKMPhysicalPoint.h; sourceTree = "<group>"; };
+		64CFB2C619510CF300D326E9 /* NKMPhysicalPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NKMPhysicalPoint.m; sourceTree = "<group>"; };
 		64F6C303194A690F00752E81 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		64F6C305194A691700752E81 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
-		64F6C309194A6CD700752E81 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		64F6C30A194A6CD700752E81 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		64F6C30B194A6CD700752E81 /* NKMNumPadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NKMNumPadViewController.h; sourceTree = "<group>"; };
-		64F6C30C194A6CD700752E81 /* NKMNumPadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NKMNumPadViewController.m; sourceTree = "<group>"; };
-		64F6C314194A6CF300752E81 /* NKMPhysicalPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NKMPhysicalPoint.h; sourceTree = "<group>"; };
-		64F6C315194A6CF300752E81 /* NKMPhysicalPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NKMPhysicalPoint.m; sourceTree = "<group>"; };
 		64F6C319194A6D3B00752E81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = resources/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		64F6C31B194A6D4700752E81 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = resources/Images.xcassets; sourceTree = "<group>"; };
 		64F6C31E194A6D6900752E81 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = resources/en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -127,6 +127,8 @@
 		6474BB6B1947BE9C0014FBF0 /* NKMNumPad */ = {
 			isa = PBXGroup;
 			children = (
+				64CFB2B919510C3200D326E9 /* AppDelegate.h */,
+				64CFB2BA19510C3200D326E9 /* AppDelegate.m */,
 				64F6C313194A6CF300752E81 /* models */,
 				64F6C30F194A6CE800752E81 /* views */,
 				64F6C308194A6CD700752E81 /* controllers */,
@@ -168,10 +170,8 @@
 		64F6C308194A6CD700752E81 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
-				64F6C309194A6CD700752E81 /* AppDelegate.h */,
-				64F6C30A194A6CD700752E81 /* AppDelegate.m */,
-				64F6C30B194A6CD700752E81 /* NKMNumPadViewController.h */,
-				64F6C30C194A6CD700752E81 /* NKMNumPadViewController.m */,
+				64CFB2C219510CEB00D326E9 /* NKMNumPadViewController.h */,
+				64CFB2C319510CEB00D326E9 /* NKMNumPadViewController.m */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -186,8 +186,8 @@
 		64F6C313194A6CF300752E81 /* models */ = {
 			isa = PBXGroup;
 			children = (
-				64F6C314194A6CF300752E81 /* NKMPhysicalPoint.h */,
-				64F6C315194A6CF300752E81 /* NKMPhysicalPoint.m */,
+				64CFB2C519510CF300D326E9 /* NKMPhysicalPoint.h */,
+				64CFB2C619510CF300D326E9 /* NKMPhysicalPoint.m */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -302,10 +302,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				64F6C30E194A6CD700752E81 /* NKMNumPadViewController.m in Sources */,
-				64F6C316194A6CF300752E81 /* NKMPhysicalPoint.m in Sources */,
-				64F6C30D194A6CD700752E81 /* AppDelegate.m in Sources */,
 				6474BB721947BE9C0014FBF0 /* main.m in Sources */,
+				64CFB2C719510CF300D326E9 /* NKMPhysicalPoint.m in Sources */,
+				64CFB2C419510CEB00D326E9 /* NKMNumPadViewController.m in Sources */,
+				64CFB2BB19510C3200D326E9 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
