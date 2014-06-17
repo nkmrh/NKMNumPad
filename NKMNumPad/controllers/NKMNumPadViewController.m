@@ -88,15 +88,36 @@ GLubyte indices[] = {
 };
 
 Vertex vertices2[] = {
-    {{-1.5, 0.5}, {0.0, 0.0, 0.0, 0.5}, {0.0, 1.0}},
-    {{-0.5, 0.5}, {0.0, 0.0, 0.0, 0.5}, {1.0, 1.0}},
-    {{-1.5, -0.5}, {0.0, 0.0, 0.0, 0.5}, {0.0, 0.0}},
-    {{-0.5, -0.5}, {0.0, 0.0, 0.0, 0.5}, {1.0, 0.0}},
+    {{-1.5, 0.5}, {1.0, 1.0, 1.0, 0.5}, {0.0, 1.0}},
+    {{-0.5, 0.5}, {1.0, 1.0, 1.0, 0.5}, {1.0, 1.0}},
+    {{-1.5, -0.5}, {1.0, 1.0, 1.0, 0.5}, {0.0, 0.0}},
+    {{-0.5, -0.5}, {1.0, 1.0, 1.0, 0.5}, {1.0, 0.0}},
 };
 
 GLubyte indices2[] = {
     2, 0, 1,
     2, 1, 3,
+};
+
+Vertex vertices3[] = {
+    {{-1.5, 0.5}, {1.0, 1.0, 1.0, 0.5}, {0.0, 1.0}},
+    {{-0.5, 0.5}, {1.0, 1.0, 1.0, 0.5}, {0.333333, 1.0}},
+    {{0.5, 0.5}, {1.0, 1.0, 1.0, 0.5}, {0.666666, 1.0}},
+    {{1.5, 0.5}, {1.0, 1.0, 1.0, 0.5}, {1.0, 1.0}},
+    
+    {{-1.5, -0.5}, {1.0, 1.0, 1.0, 0.5}, {0.0, 0.0}},
+    {{-0.5, -0.5}, {1.0, 1.0, 1.0, 0.5}, {0.333333, 0.0}},
+    {{0.5, -0.5}, {1.0, 1.0, 1.0, 0.5}, {0.666666, 0.0}},
+    {{1.5, -0.5}, {1.0, 1.0, 1.0, 0.5}, {1.0, 0.0}},
+};
+
+GLubyte indices3[] = {
+    4, 0, 1,
+    4, 1, 5,
+    5, 1, 2,
+    5, 2, 6,
+    6, 2, 3,
+    6, 3, 7,
 };
 
 CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
@@ -119,6 +140,10 @@ CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
     GLuint _vertexBuffer2;
     GLuint _indexBuffer2;
     GLuint _vertexArray2;
+    
+    GLuint _vertexBuffer3;
+    GLuint _indexBuffer3;
+    GLuint _vertexArray3;
 }
 
 @property(nonatomic) EAGLContext *context;
@@ -134,8 +159,6 @@ CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-    
-    [self setupGL];
 
   _points = [NSMutableArray new];
   _locations = [NSMutableArray new];
@@ -158,10 +181,12 @@ CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
       [_locations addObject:[NSValue valueWithCGPoint:location]];
     }
   }
+    
+  [self setupGL];
 }
 
-- (void)viewDidUnload {
-    [super viewDidUnload];
+- (void)dealloc
+{
     [self tearDownGL];
     if ([EAGLContext currentContext] == self.context) {
         [EAGLContext setCurrentContext:nil];
@@ -174,8 +199,6 @@ CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
 //--------------------------------------------------------------//
 
 - (void)setupGL {
-    self.preferredFramesPerSecond = 60;
-    
     self.context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
     if (!self.context) {
         NSLog(@"Failed to create ES context");
@@ -187,9 +210,10 @@ CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
     view.drawableMultisample = GLKViewDrawableMultisample4X;
     view.delegate = self;
     
+    self.preferredFramesPerSecond = 60;
     self.effect = [GLKBaseEffect new];
     self.effect.useConstantColor = GL_TRUE;
-#if 1
+
     NSDictionary * options = [NSDictionary dictionaryWithObjectsAndKeys:
                               [NSNumber numberWithBool:YES],
                               GLKTextureLoaderOriginBottomLeft,
@@ -202,9 +226,34 @@ CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
     }
     self.effect.texture2d0.name = info.name;
     self.effect.texture2d0.enabled = GL_TRUE;
-#endif
     self.effect.transform.projectionMatrix = GLKMatrix4MakeOrtho(CGRectGetMinX(self.view.bounds), CGRectGetMaxX(self.view.bounds), CGRectGetMaxY(self.view.bounds), CGRectGetMinY(self.view.bounds), -1.0f, 1.0f);
     
+    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+    
+    glGenVertexArraysOES(1, &_vertexArray);
+    glBindVertexArrayOES(_vertexArray);
+    glGenBuffers(1, &_vertexBuffer);
+    glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer);
+    glGenBuffers(1, &_indexBuffer);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _indexBuffer);
+    
+    glGenVertexArraysOES(1, &_vertexArray2);
+    glBindVertexArrayOES(_vertexArray2);
+    glGenBuffers(1, &_vertexBuffer2);
+    glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer2);
+    glGenBuffers(1, &_indexBuffer2);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _indexBuffer2);
+    
+    glGenVertexArraysOES(1, &_vertexArray3);
+    glBindVertexArrayOES(_vertexArray3);
+    glGenBuffers(1, &_vertexBuffer3);
+    glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer3);
+    glGenBuffers(1, &_indexBuffer3);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _indexBuffer3);
+    
+    glVertexAttribPointer(GLKVertexAttribPosition, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid *) offsetof(Vertex, Position));
+    glVertexAttribPointer(GLKVertexAttribColor, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid *) offsetof(Vertex, Color));
+    glVertexAttribPointer(GLKVertexAttribTexCoord0, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid *) offsetof(Vertex, TexCoord));
 }
 
 - (void)tearDownGL {
@@ -217,6 +266,10 @@ CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
     glDeleteBuffers(1, &_vertexBuffer2);
     glDeleteBuffers(1, &_indexBuffer2);
     glDeleteVertexArraysOES(1, &_vertexArray2);
+    
+    glDeleteBuffers(1, &_vertexBuffer3);
+    glDeleteBuffers(1, &_indexBuffer3);
+    glDeleteVertexArraysOES(1, &_vertexArray3);
     
     self.effect = nil;
 }
@@ -235,45 +288,49 @@ CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
     row = -1;
     col = -1;
     
-    ///
-    /// row
-    ///
+    /// row ///
     
     // For row 0
-    if ([_locations[0] CGPointValue].y < ty && [_locations[4] CGPointValue].y > ty) {
+    if (((NKMPhysicalPoint*)_points[0]).position.y < ty &&
+        ((NKMPhysicalPoint*)_points[4]).position.y > ty) {
         row = 0;
     }
     // For row 1
-    else if ([_locations[4] CGPointValue].y < ty && [_locations[8] CGPointValue].y > ty) {
+    else if (((NKMPhysicalPoint*)_points[4]).position.y < ty &&
+             ((NKMPhysicalPoint*)_points[8]).position.y > ty) {
         row = 1;
     }
     // For row 2
-    else if ([_locations[8] CGPointValue].y < ty && [_locations[12] CGPointValue].y > ty) {
+    else if (((NKMPhysicalPoint*)_points[8]).position.y < ty &&
+             ((NKMPhysicalPoint*)_points[12]).position.y > ty) {
         row = 2;
     }
     // For row 3
-    else if ([_locations[12] CGPointValue].y < ty && [_locations[16] CGPointValue].y > ty) {
+    else if (((NKMPhysicalPoint*)_points[12]).position.y < ty &&
+             ((NKMPhysicalPoint*)_points[16]).position.y > ty) {
         row = 3;
     }
     // For row 4
-    else if ([_locations[16] CGPointValue].y < ty && [_locations[20] CGPointValue].y > ty) {
+    else if (((NKMPhysicalPoint*)_points[16]).position.y < ty &&
+             ((NKMPhysicalPoint*)_points[20]).position.y > ty) {
         row = 4;
     }
     
-    ///
-    /// colum
-    ///
+    /// colum ///
     
     // For colum 0
-    if ([_locations[0] CGPointValue].x < tx && [_locations[1] CGPointValue].x > tx) {
+    if (((NKMPhysicalPoint*)_points[0]).position.x < tx &&
+        ((NKMPhysicalPoint*)_points[1]).position.x > tx) {
         col = 0;
     }
     // For colum 1
-    else if ([_locations[1] CGPointValue].x < tx && [_locations[2] CGPointValue].x > tx) {
+    else if (((NKMPhysicalPoint*)_points[1]).position.x < tx &&
+             ((NKMPhysicalPoint*)_points[2]).position.x > tx) {
         col = 1;
     }
     // For colum 2
-    else if ([_locations[2] CGPointValue].x < tx && [_locations[3] CGPointValue].x > tx) {
+    else if (((NKMPhysicalPoint*)_points[2]).position.x < tx &&
+             ((NKMPhysicalPoint*)_points[3]).position.x > tx) {
         col = 2;
     }
     
@@ -318,43 +375,53 @@ CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
 
 - (void)update
 {
+    // Update physical points
     for (int i = 0; i < _points.count; i++) {
         NKMPhysicalPoint *point = _points[i];
         
         CGPoint position = point.position;
         CGPoint location = [_locations[i] CGPointValue];
-        [point configureAccelerationXvalue:(location.x - position.x) * 200
-                                    Yvalue:(location.y - position.y) * 200];
+        [point configureAccelerationXvalue:(location.x - position.x) * 500
+                                    Yvalue:(location.y - position.y) * 500];
         
-        CGFloat maxDist = 80.0f;
+        CGFloat maxDist = 95.0f;
         CGFloat dist = DistanceBetweenTwoPoints(position, _touchPoint);
         
         if (dist < maxDist) {
             CGFloat par = (maxDist - dist) / maxDist;
             [point
-             configureAccelerationXvalue:(position.x - _touchPoint.x) * par * 200
-             Yvalue:(position.y - _touchPoint.y) * par * 200];
+             configureAccelerationXvalue:(position.x - _touchPoint.x) * par * 300
+             Yvalue:(position.y - _touchPoint.y) * par * 300];
         }
     }
     
     // Update vertices1
-    for (int i = 0; i < _points.count; i++) {
+    for (int i = 0; i < sizeof(vertices) / sizeof(vertices[0]); i++) {
         NKMPhysicalPoint *point = _points[i];
         vertices[i].Position[0] = point.position.x;
         vertices[i].Position[1] = point.position.y;
     }
 
-    // Update vertices2
+    // Update vertices2, vertex3
     if (nil == _hilightedIndexPath) {
-        vertices2[0].Position[1] = 0.0f;
-        vertices2[1].Position[1] = 0.0f;
-        vertices2[2].Position[1] = 0.0f;
-        vertices2[3].Position[1] = 0.0f;
-        
-        vertices2[0].Position[0] = 0.0f;
-        vertices2[1].Position[0] = 0.0f;
-        vertices2[2].Position[0] = 0.0f;
-        vertices2[3].Position[0] = 0.0f;
+        for (int i = 0; i < sizeof(vertices3) / sizeof(vertices3[0]); i++) {
+            vertices3[i].Position[0] = 0.0f;
+            vertices3[i].Position[1] = 0.0f;
+        }
+        for (int i = 0; i < sizeof(vertices2) / sizeof(vertices2[0]); i++) {
+            vertices2[i].Position[0] = 0.0f;
+            vertices2[i].Position[1] = 0.0f;
+        }
+    }
+    else if (4 == _hilightedIndexPath.row) {
+        for (int i = 0; i < sizeof(vertices3) / sizeof(vertices3[0]); i++) {
+            vertices3[i].Position[0] = ((NKMPhysicalPoint*)_points[16 + i]).position.x;
+            vertices3[i].Position[1] = ((NKMPhysicalPoint*)_points[16 + i]).position.y;
+        }
+        for (int i = 0; i < sizeof(vertices2) / sizeof(vertices2[0]); i++) {
+            vertices2[i].Position[0] = 0.0f;
+            vertices2[i].Position[1] = 0.0f;
+        }
     }
     else {
         NSInteger row1, row2, col1, col2;
@@ -362,7 +429,6 @@ CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
         row2 = (_hilightedIndexPath.row * 4) + 4;
         col1 = _hilightedIndexPath.section;
         col2 = _hilightedIndexPath.section + 1;
-
         vertices2[0].Position[0] = ((NKMPhysicalPoint*)_points[col1 + row1]).position.x;
         vertices2[0].Position[1] = ((NKMPhysicalPoint*)_points[col1 + row1]).position.y;
         vertices2[1].Position[0] = ((NKMPhysicalPoint*)_points[col2 + row1]).position.x;
@@ -371,6 +437,11 @@ CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
         vertices2[2].Position[1] = ((NKMPhysicalPoint*)_points[col1 + row2]).position.y;
         vertices2[3].Position[0] = ((NKMPhysicalPoint*)_points[col2 + row2]).position.x;
         vertices2[3].Position[1] = ((NKMPhysicalPoint*)_points[col2 + row2]).position.y;
+        
+        for (int i = 0; i < sizeof(vertices3) / sizeof(vertices3[0]); i++) {
+            vertices3[i].Position[0] = 0.0f;
+            vertices3[i].Position[1] = 0.0f;
+        }
     }
 }
 
@@ -380,67 +451,40 @@ CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
 {
-    glClearColor(0.65f, 0.65f, 0.65f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
-    glDeleteBuffers(2, &_vertexBuffer2);
-    glDeleteBuffers(2, &_indexBuffer2);
-    glDeleteVertexArraysOES(2, &_vertexArray2);
-    
-    glGenVertexArraysOES(2, &_vertexArray2);
-    glBindVertexArrayOES(_vertexArray2);
-    
-    glGenBuffers(2, &_vertexBuffer2);
-    glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer2);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices2), vertices2, GL_DYNAMIC_DRAW);
-    
-    glGenBuffers(2, &_indexBuffer2);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _indexBuffer2);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices2), indices2, GL_DYNAMIC_DRAW);
-    
-    glEnableVertexAttribArray(GLKVertexAttribPosition);
-    glVertexAttribPointer(GLKVertexAttribPosition, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid *) offsetof(Vertex, Position));
-    glEnableVertexAttribArray(GLKVertexAttribColor);
-    glVertexAttribPointer(GLKVertexAttribColor, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid *) offsetof(Vertex, Color));
+    glEnable (GL_BLEND);
+    glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     
     self.effect.texture2d0.enabled = GL_FALSE;
     [self.effect prepareToDraw];
     
-    glEnable (GL_BLEND);
-    glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glEnableVertexAttribArray(GLKVertexAttribPosition);
+    glEnableVertexAttribArray(GLKVertexAttribColor);
+    
+    // ----------------------------------------------------------------------
+    
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices3), vertices3, GL_DYNAMIC_DRAW);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices3), indices3, GL_DYNAMIC_DRAW);
+    glDrawElements(GL_TRIANGLES , sizeof(indices3)/sizeof(indices3[0]), GL_UNSIGNED_BYTE , 0);
+    
+    // ----------------------------------------------------------------------
+    
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices2), vertices2, GL_DYNAMIC_DRAW);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices2), indices2, GL_DYNAMIC_DRAW);
     glDrawElements(GL_TRIANGLES , sizeof(indices2)/sizeof(indices2[0]), GL_UNSIGNED_BYTE , 0);
     
-    
-    glDeleteBuffers(1, &_vertexBuffer);
-    glDeleteBuffers(1, &_indexBuffer);
-    glDeleteVertexArraysOES(1, &_vertexArray);
-    
-    glGenVertexArraysOES(1, &_vertexArray);
-    glBindVertexArrayOES(_vertexArray);
-    
-    glGenBuffers(1, &_vertexBuffer);
-    glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_DYNAMIC_DRAW);
-    
-    glGenBuffers(1, &_indexBuffer);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _indexBuffer);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_DYNAMIC_DRAW);
-    
-    glEnableVertexAttribArray(GLKVertexAttribPosition);
-    glVertexAttribPointer(GLKVertexAttribPosition, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid *) offsetof(Vertex, Position));
-#if 0
-    glEnableVertexAttribArray(GLKVertexAttribColor);
-    glVertexAttribPointer(GLKVertexAttribColor, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid *) offsetof(Vertex, Color));
-#else
-    glEnableVertexAttribArray(GLKVertexAttribTexCoord0);
-    glVertexAttribPointer(GLKVertexAttribTexCoord0, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid *) offsetof(Vertex, TexCoord));
-#endif
-    
+    // ----------------------------------------------------------------------
+
     self.effect.texture2d0.enabled = GL_TRUE;
     [self.effect prepareToDraw];
     
+    glDisableVertexAttribArray(GLKVertexAttribColor);
+    glEnableVertexAttribArray(GLKVertexAttribTexCoord0);
+    
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_DYNAMIC_DRAW);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_DYNAMIC_DRAW);
     glDrawElements(GL_TRIANGLES , sizeof(indices)/sizeof(indices[0]), GL_UNSIGNED_BYTE , 0);
-//    glDrawElements(GL_LINE_STRIP , sizeof(indices)/sizeof(indices[0]), GL_UNSIGNED_BYTE , 0);
 }
 
 @end
