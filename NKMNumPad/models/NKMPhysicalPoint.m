@@ -30,7 +30,7 @@
   }
 
   self.position = point;
-  self.resistance = 0.9;
+  self.resistance = 0.95;
   _accelerationX = 0;
   _accelerationY = 0;
   self.speedX = 0;

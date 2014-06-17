@@ -16,7 +16,7 @@
 		6474BB871947BE9C0014FBF0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6474BB691947BE9C0014FBF0 /* UIKit.framework */; };
 		6474BB8F1947BE9C0014FBF0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6474BB8D1947BE9C0014FBF0 /* InfoPlist.strings */; };
 		6474BB911947BE9C0014FBF0 /* NKMNumPadTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6474BB901947BE9C0014FBF0 /* NKMNumPadTests.m */; };
-		64B2E2DE194D3B2D00258DD1 /* 4x4grid.png in Resources */ = {isa = PBXBuildFile; fileRef = 64B2E2DD194D3B2D00258DD1 /* 4x4grid.png */; };
+		64CFB2B6194EF5A300D326E9 /* 4x3.png in Resources */ = {isa = PBXBuildFile; fileRef = 64CFB2B5194EF5A300D326E9 /* 4x3.png */; };
 		64F6C304194A690F00752E81 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64F6C303194A690F00752E81 /* GLKit.framework */; };
 		64F6C306194A691700752E81 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64F6C305194A691700752E81 /* OpenGLES.framework */; };
 		64F6C30D194A6CD700752E81 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 64F6C30A194A6CD700752E81 /* AppDelegate.m */; };
@@ -50,7 +50,7 @@
 		6474BB8C1947BE9C0014FBF0 /* NKMNumPadTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NKMNumPadTests-Info.plist"; sourceTree = "<group>"; };
 		6474BB8E1947BE9C0014FBF0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6474BB901947BE9C0014FBF0 /* NKMNumPadTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NKMNumPadTests.m; sourceTree = "<group>"; };
-		64B2E2DD194D3B2D00258DD1 /* 4x4grid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 4x4grid.png; path = NKMNumPad/resources/images/4x4grid.png; sourceTree = SOURCE_ROOT; };
+		64CFB2B5194EF5A300D326E9 /* 4x3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 4x3.png; path = resources/images/4x3.png; sourceTree = "<group>"; };
 		64F6C303194A690F00752E81 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		64F6C305194A691700752E81 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		64F6C309194A6CD700752E81 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -193,7 +193,7 @@
 		64F6C317194A6D2100752E81 /* resources */ = {
 			isa = PBXGroup;
 			children = (
-				64B2E2DD194D3B2D00258DD1 /* 4x4grid.png */,
+				64CFB2B5194EF5A300D326E9 /* 4x3.png */,
 				64F6C31B194A6D4700752E81 /* Images.xcassets */,
 				64F6C318194A6D3B00752E81 /* Main.storyboard */,
 			);
@@ -276,9 +276,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				64B2E2DE194D3B2D00258DD1 /* 4x4grid.png in Resources */,
 				64F6C31C194A6D4700752E81 /* Images.xcassets in Resources */,
 				64F6C31F194A6D6900752E81 /* InfoPlist.strings in Resources */,
+				64CFB2B6194EF5A300D326E9 /* 4x3.png in Resources */,
 				64F6C31A194A6D3B00752E81 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

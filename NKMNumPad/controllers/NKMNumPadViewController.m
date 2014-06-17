@@ -20,28 +20,28 @@ typedef struct {
 
 Vertex vertices[] = {
     {{-1.5, 0.5}, {0.0, 0.0, 0.0, 1.0}, {0.0, 1.0}},
-    {{-0.5, 0.5}, {0.0, 0.0, 0.0, 1.0}, {0.3, 1.0}},
-    {{0.5, 0.5}, {0.0, 0.0, 0.0, 1.0}, {0.6, 1.0}},
+    {{-0.5, 0.5}, {0.0, 0.0, 0.0, 1.0}, {0.333333, 1.0}},
+    {{0.5, 0.5}, {0.0, 0.0, 0.0, 1.0}, {0.666666, 1.0}},
     {{1.5, 0.5}, {0.0, 0.0, 0.0, 1.0}, {1.0, 1.0}},
     
     {{-1.5, -0.5}, {0.0, 0.0, 0.0, 1.0}, {0.0, 0.75}},
-    {{-0.5, -0.5}, {0.0, 0.0, 0.0, 1.0}, {0.3, 0.75}},
-    {{0.5, -0.5}, {0.0, 0.0, 0.0, 1.0}, {0.6, 0.75}},
+    {{-0.5, -0.5}, {0.0, 0.0, 0.0, 1.0}, {0.333333, 0.75}},
+    {{0.5, -0.5}, {0.0, 0.0, 0.0, 1.0}, {0.666666, 0.75}},
     {{1.5, -0.5}, {0.0, 0.0, 0.0, 1.0}, {1.0, 0.75}},
     
     {{-1.5, -1.5}, {0.0, 0.0, 0.0, 1.0}, {0.0, 0.5}},
-    {{-0.5, -1.5}, {0.0, 0.0, 0.0, 1.0}, {0.3, 0.5}},
-    {{0.5, -1.5}, {0.0, 0.0, 0.0, 1.0}, {0.6, 0.5}},
+    {{-0.5, -1.5}, {0.0, 0.0, 0.0, 1.0}, {0.333333, 0.5}},
+    {{0.5, -1.5}, {0.0, 0.0, 0.0, 1.0}, {0.666666, 0.5}},
     {{1.5, -1.5}, {0.0, 0.0, 0.0, 1.0}, {1.0, 0.5}},
     
     {{-1.5, -2.5}, {0.0, 0.0, 0.0, 1.0}, {0.0, 0.25}},
-    {{-0.5, -2.5}, {0.0, 0.0, 0.0, 1.0}, {0.3, 0.25}},
-    {{0.5, -2.5}, {0.0, 0.0, 0.0, 1.0}, {0.6, 0.25}},
+    {{-0.5, -2.5}, {0.0, 0.0, 0.0, 1.0}, {0.333333, 0.25}},
+    {{0.5, -2.5}, {0.0, 0.0, 0.0, 1.0}, {0.666666, 0.25}},
     {{1.5, -2.5}, {0.0, 0.0, 0.0, 1.0}, {1.0, 0.25}},
     
     {{-1.5, -3.5}, {0.0, 0.0, 0.0, 1.0}, {0.0, 0.0}},
-    {{-0.5, -3.5}, {0.0, 0.0, 0.0, 1.0}, {0.3, 0.0}},
-    {{0.5, -3.5}, {0.0, 0.0, 0.0, 1.0}, {0.6, 0.0}},
+    {{-0.5, -3.5}, {0.0, 0.0, 0.0, 1.0}, {0.333333, 0.0}},
+    {{0.5, -3.5}, {0.0, 0.0, 0.0, 1.0}, {0.666666, 0.0}},
     {{1.5, -3.5}, {0.0, 0.0, 0.0, 1.0}, {1.0, 0.0}},
 };
 
@@ -76,10 +76,10 @@ GLubyte indices[] = {
 };
 
 Vertex vertices2[] = {
-    {{-1.5, 0.5}, {1.0, 0.0, 0.0, 0.5}, {0.0, 1.0}},
-    {{-0.5, 0.5}, {1.0, 0.0, 0.0, 0.5}, {0.3, 1.0}},
-    {{-1.5, -0.5}, {1.0, 0.0, 0.0, 0.5}, {0.0, 0.75}},
-    {{-0.5, -0.5}, {1.0, 0.0, 0.0, 0.5}, {0.3, 0.75}},
+    {{-1.5, 0.5}, {0.0, 0.0, 0.0, 0.5}, {0.0, 1.0}},
+    {{-0.5, 0.5}, {0.0, 0.0, 0.0, 0.5}, {1.0, 1.0}},
+    {{-1.5, -0.5}, {0.0, 0.0, 0.0, 0.5}, {0.0, 0.0}},
+    {{-0.5, -0.5}, {0.0, 0.0, 0.0, 0.5}, {1.0, 0.0}},
 };
 
 GLubyte indices2[] = {
@@ -176,15 +176,14 @@ CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
     view.delegate = self;
     
     self.effect = [GLKBaseEffect new];
-    self.effect.useConstantColor = GL_FALSE;
-    
-#if 0
+    self.effect.useConstantColor = GL_TRUE;
+#if 1
     NSDictionary * options = [NSDictionary dictionaryWithObjectsAndKeys:
                               [NSNumber numberWithBool:YES],
                               GLKTextureLoaderOriginBottomLeft,
                               nil];
     NSError * error;
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"4x4grid" ofType:@"png"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"4x3" ofType:@"png"];
     GLKTextureInfo * info = [GLKTextureLoader textureWithContentsOfFile:path options:options error:&error];
     if (info == nil) {
         NSLog(@"Error loading file: %@", [error localizedDescription]);
@@ -317,18 +316,17 @@ CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
         
         CGPoint position = point.position;
         CGPoint location = [_locations[i] CGPointValue];
+        [point configureAccelerationXvalue:(location.x - position.x) * 200
+                                    Yvalue:(location.y - position.y) * 200];
         
-        [point configureAccelerationXvalue:(location.x - position.x) * 300
-                                    Yvalue:(location.y - position.y) * 300];
-        
-        CGFloat maxDist = 120.0f;
+        CGFloat maxDist = 100.0f;
         CGFloat dist = DistanceBetweenTwoPoints(position, _touchPoint);
         
         if (dist < maxDist) {
             CGFloat par = (maxDist - dist) / maxDist;
             [point
-             configureAccelerationXvalue:(position.x - _touchPoint.x) * par * 300
-             Yvalue:(position.y - _touchPoint.y) * par * 300];
+             configureAccelerationXvalue:(position.x - _touchPoint.x) * par * 200
+             Yvalue:(position.y - _touchPoint.y) * par * 200];
         }
     }
     
@@ -378,37 +376,6 @@ CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
     glClearColor(0.65f, 0.65f, 0.65f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
-    
-    glDeleteBuffers(1, &_vertexBuffer);
-    glDeleteBuffers(1, &_indexBuffer);
-    glDeleteVertexArraysOES(1, &_vertexArray);
-    
-    glGenVertexArraysOES(1, &_vertexArray);
-    glBindVertexArrayOES(_vertexArray);
-    
-    glGenBuffers(1, &_vertexBuffer);
-    glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_DYNAMIC_DRAW);
-    
-    glGenBuffers(1, &_indexBuffer);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _indexBuffer);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_DYNAMIC_DRAW);
-    
-    glEnableVertexAttribArray(GLKVertexAttribPosition);
-    glVertexAttribPointer(GLKVertexAttribPosition, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid *) offsetof(Vertex, Position));
-    glEnableVertexAttribArray(GLKVertexAttribColor);
-    glVertexAttribPointer(GLKVertexAttribColor, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid *) offsetof(Vertex, Color));
-#if 0
-    glEnableVertexAttribArray(GLKVertexAttribTexCoord0);
-    glVertexAttribPointer(GLKVertexAttribTexCoord0, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid *) offsetof(Vertex, TexCoord));
-#endif
-    
-    [self.effect prepareToDraw];
-    
-//    glDrawElements(GL_TRIANGLES , sizeof(indices)/sizeof(indices[0]), GL_UNSIGNED_BYTE , 0);
-    glDrawElements(GL_LINE_STRIP , sizeof(indices)/sizeof(indices[0]), GL_UNSIGNED_BYTE , 0);
-    
-    
     glDeleteBuffers(2, &_vertexBuffer2);
     glDeleteBuffers(2, &_indexBuffer2);
     glDeleteVertexArraysOES(2, &_vertexArray2);
@@ -429,11 +396,44 @@ CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
     glEnableVertexAttribArray(GLKVertexAttribColor);
     glVertexAttribPointer(GLKVertexAttribColor, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid *) offsetof(Vertex, Color));
     
+    self.effect.texture2d0.enabled = GL_FALSE;
+    [self.effect prepareToDraw];
+    
     glEnable (GL_BLEND);
     glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    
     glDrawElements(GL_TRIANGLES , sizeof(indices2)/sizeof(indices2[0]), GL_UNSIGNED_BYTE , 0);
-//    glDrawElements(GL_LINE_STRIP , sizeof(indices2)/sizeof(indices2[0]), GL_UNSIGNED_BYTE , 0);
+    
+    
+    glDeleteBuffers(1, &_vertexBuffer);
+    glDeleteBuffers(1, &_indexBuffer);
+    glDeleteVertexArraysOES(1, &_vertexArray);
+    
+    glGenVertexArraysOES(1, &_vertexArray);
+    glBindVertexArrayOES(_vertexArray);
+    
+    glGenBuffers(1, &_vertexBuffer);
+    glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_DYNAMIC_DRAW);
+    
+    glGenBuffers(1, &_indexBuffer);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _indexBuffer);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_DYNAMIC_DRAW);
+    
+    glEnableVertexAttribArray(GLKVertexAttribPosition);
+    glVertexAttribPointer(GLKVertexAttribPosition, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid *) offsetof(Vertex, Position));
+#if 0
+    glEnableVertexAttribArray(GLKVertexAttribColor);
+    glVertexAttribPointer(GLKVertexAttribColor, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid *) offsetof(Vertex, Color));
+#else
+    glEnableVertexAttribArray(GLKVertexAttribTexCoord0);
+    glVertexAttribPointer(GLKVertexAttribTexCoord0, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid *) offsetof(Vertex, TexCoord));
+#endif
+    
+    self.effect.texture2d0.enabled = GL_TRUE;
+    [self.effect prepareToDraw];
+    
+    glDrawElements(GL_TRIANGLES , sizeof(indices)/sizeof(indices[0]), GL_UNSIGNED_BYTE , 0);
+//    glDrawElements(GL_LINE_STRIP , sizeof(indices)/sizeof(indices[0]), GL_UNSIGNED_BYTE , 0);
 }
 
 @end
