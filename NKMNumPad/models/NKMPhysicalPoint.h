@@ -8,13 +8,12 @@
 
 @interface NKMPhysicalPoint : NSObject
 
-@property(nonatomic) CGFloat speedX;
-@property(nonatomic) CGFloat speedY;
-@property(nonatomic) CGFloat resistance;
-@property(nonatomic) CGPoint position;
+@property(nonatomic, readonly) CGPoint position;
 
 - (instancetype)init;
 - (instancetype)initWithPoint:(CGPoint)point;
+- (void)initializeInstanceVariables;
 - (void)configureAccelerationXvalue:(CGFloat)x Yvalue:(CGFloat)y;
+- (void)updateWithInterval:(NSTimeInterval)interval;
 
 @end
