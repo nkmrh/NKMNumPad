@@ -10,7 +10,7 @@
 #import "NKMPhysicalPoint.h"
 
 static const NSInteger kNKMNumPadColumnMax = 3;
-static const NSInteger kNKMNumPadRowMax = 4;
+static const NSInteger kNKMNumPadRowMax = 5;
 
 typedef struct {
     float Position[2];
@@ -24,25 +24,30 @@ Vertex vertices[] = {
     {{0.5, 0.5}, {0.0, 0.0, 0.0, 1.0}, {0.666666, 1.0}},
     {{1.5, 0.5}, {0.0, 0.0, 0.0, 1.0}, {1.0, 1.0}},
     
-    {{-1.5, -0.5}, {0.0, 0.0, 0.0, 1.0}, {0.0, 0.75}},
-    {{-0.5, -0.5}, {0.0, 0.0, 0.0, 1.0}, {0.333333, 0.75}},
-    {{0.5, -0.5}, {0.0, 0.0, 0.0, 1.0}, {0.666666, 0.75}},
-    {{1.5, -0.5}, {0.0, 0.0, 0.0, 1.0}, {1.0, 0.75}},
+    {{-1.5, -0.5}, {0.0, 0.0, 0.0, 1.0}, {0.0, 0.8}},
+    {{-0.5, -0.5}, {0.0, 0.0, 0.0, 1.0}, {0.333333, 0.8}},
+    {{0.5, -0.5}, {0.0, 0.0, 0.0, 1.0}, {0.666666, 0.8}},
+    {{1.5, -0.5}, {0.0, 0.0, 0.0, 1.0}, {1.0, 0.8}},
     
-    {{-1.5, -1.5}, {0.0, 0.0, 0.0, 1.0}, {0.0, 0.5}},
-    {{-0.5, -1.5}, {0.0, 0.0, 0.0, 1.0}, {0.333333, 0.5}},
-    {{0.5, -1.5}, {0.0, 0.0, 0.0, 1.0}, {0.666666, 0.5}},
-    {{1.5, -1.5}, {0.0, 0.0, 0.0, 1.0}, {1.0, 0.5}},
+    {{-1.5, -1.5}, {0.0, 0.0, 0.0, 1.0}, {0.0, 0.6}},
+    {{-0.5, -1.5}, {0.0, 0.0, 0.0, 1.0}, {0.333333, 0.6}},
+    {{0.5, -1.5}, {0.0, 0.0, 0.0, 1.0}, {0.666666, 0.6}},
+    {{1.5, -1.5}, {0.0, 0.0, 0.0, 1.0}, {1.0, 0.6}},
     
-    {{-1.5, -2.5}, {0.0, 0.0, 0.0, 1.0}, {0.0, 0.25}},
-    {{-0.5, -2.5}, {0.0, 0.0, 0.0, 1.0}, {0.333333, 0.25}},
-    {{0.5, -2.5}, {0.0, 0.0, 0.0, 1.0}, {0.666666, 0.25}},
-    {{1.5, -2.5}, {0.0, 0.0, 0.0, 1.0}, {1.0, 0.25}},
+    {{-1.5, -2.5}, {0.0, 0.0, 0.0, 1.0}, {0.0, 0.4}},
+    {{-0.5, -2.5}, {0.0, 0.0, 0.0, 1.0}, {0.333333, 0.4}},
+    {{0.5, -2.5}, {0.0, 0.0, 0.0, 1.0}, {0.666666, 0.4}},
+    {{1.5, -2.5}, {0.0, 0.0, 0.0, 1.0}, {1.0, 0.4}},
     
-    {{-1.5, -3.5}, {0.0, 0.0, 0.0, 1.0}, {0.0, 0.0}},
-    {{-0.5, -3.5}, {0.0, 0.0, 0.0, 1.0}, {0.333333, 0.0}},
-    {{0.5, -3.5}, {0.0, 0.0, 0.0, 1.0}, {0.666666, 0.0}},
-    {{1.5, -3.5}, {0.0, 0.0, 0.0, 1.0}, {1.0, 0.0}},
+    {{-1.5, -3.5}, {0.0, 0.0, 0.0, 1.0}, {0.0, 0.2}},
+    {{-0.5, -3.5}, {0.0, 0.0, 0.0, 1.0}, {0.333333, 0.2}},
+    {{0.5, -3.5}, {0.0, 0.0, 0.0, 1.0}, {0.666666, 0.2}},
+    {{1.5, -3.5}, {0.0, 0.0, 0.0, 1.0}, {1.0, 0.2}},
+    
+    {{-1.5, -4.5}, {0.0, 0.0, 0.0, 1.0}, {0.0, 0.0}},
+    {{-0.5, -4.5}, {0.0, 0.0, 0.0, 1.0}, {0.333333, 0.0}},
+    {{0.5, -4.5}, {0.0, 0.0, 0.0, 1.0}, {0.666666, 0.0}},
+    {{1.5, -4.5}, {0.0, 0.0, 0.0, 1.0}, {1.0, 0.0}},
 };
 
 GLubyte indices[] = {
@@ -73,6 +78,13 @@ GLubyte indices[] = {
     17, 14, 18,
     18, 14, 15,
     18, 15, 19,
+    
+    20, 16, 17,
+    20, 17, 21,
+    21, 17, 18,
+    21, 18, 22,
+    22, 18, 19,
+    22, 19, 23,
 };
 
 Vertex vertices2[] = {
@@ -228,25 +240,24 @@ CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
     ///
     
     // For row 0
-    if ([_locations[0] CGPointValue].y < ty && [_locations[4] CGPointValue].y > ty &&
-        [_locations[0] CGPointValue].y < ty && [_locations[4] CGPointValue].y > ty) {
+    if ([_locations[0] CGPointValue].y < ty && [_locations[4] CGPointValue].y > ty) {
         row = 0;
     }
     // For row 1
-    else if ([_locations[4] CGPointValue].y < ty && [_locations[8] CGPointValue].y > ty &&
-             [_locations[4] CGPointValue].y < ty && [_locations[8] CGPointValue].y > ty) {
+    else if ([_locations[4] CGPointValue].y < ty && [_locations[8] CGPointValue].y > ty) {
         row = 1;
-        
     }
     // For row 2
-    else if ([_locations[8] CGPointValue].y < ty && [_locations[12] CGPointValue].y > ty &&
-             [_locations[8] CGPointValue].y < ty && [_locations[12] CGPointValue].y > ty) {
+    else if ([_locations[8] CGPointValue].y < ty && [_locations[12] CGPointValue].y > ty) {
         row = 2;
     }
     // For row 3
-    else if ([_locations[12] CGPointValue].y < ty && [_locations[16] CGPointValue].y > ty &&
-             [_locations[12] CGPointValue].y < ty && [_locations[16] CGPointValue].y > ty) {
+    else if ([_locations[12] CGPointValue].y < ty && [_locations[16] CGPointValue].y > ty) {
         row = 3;
+    }
+    // For row 4
+    else if ([_locations[16] CGPointValue].y < ty && [_locations[20] CGPointValue].y > ty) {
+        row = 4;
     }
     
     ///
@@ -254,19 +265,15 @@ CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
     ///
     
     // For colum 0
-    if ([_locations[0] CGPointValue].x < tx && [_locations[1] CGPointValue].x > tx &&
-        [_locations[0] CGPointValue].x < tx && [_locations[1] CGPointValue].x > tx) {
+    if ([_locations[0] CGPointValue].x < tx && [_locations[1] CGPointValue].x > tx) {
         col = 0;
     }
     // For colum 1
-    else if ([_locations[1] CGPointValue].x < tx && [_locations[2] CGPointValue].x > tx &&
-             [_locations[1] CGPointValue].x < tx && [_locations[2] CGPointValue].x > tx) {
+    else if ([_locations[1] CGPointValue].x < tx && [_locations[2] CGPointValue].x > tx) {
         col = 1;
-        
     }
     // For colum 2
-    else if ([_locations[2] CGPointValue].x < tx && [_locations[3] CGPointValue].x > tx &&
-             [_locations[2] CGPointValue].x < tx && [_locations[3] CGPointValue].x > tx) {
+    else if ([_locations[2] CGPointValue].x < tx && [_locations[3] CGPointValue].x > tx) {
         col = 2;
     }
     
@@ -319,7 +326,7 @@ CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
         [point configureAccelerationXvalue:(location.x - position.x) * 200
                                     Yvalue:(location.y - position.y) * 200];
         
-        CGFloat maxDist = 100.0f;
+        CGFloat maxDist = 80.0f;
         CGFloat dist = DistanceBetweenTwoPoints(position, _touchPoint);
         
         if (dist < maxDist) {
