@@ -182,12 +182,12 @@ CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
     }
   }
     
-  [self setupGL];
+  [self _setupGL];
 }
 
 - (void)dealloc
 {
-    [self tearDownGL];
+    [self _tearDownGL];
     if ([EAGLContext currentContext] == self.context) {
         [EAGLContext setCurrentContext:nil];
     }
@@ -195,10 +195,10 @@ CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
 }
 
 //--------------------------------------------------------------//
-#pragma mark -- GL --
+#pragma mark -- GLES --
 //--------------------------------------------------------------//
 
-- (void)setupGL {
+- (void)_setupGL {
     self.context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
     if (!self.context) {
         NSLog(@"Failed to create ES context");
@@ -256,7 +256,7 @@ CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
     glVertexAttribPointer(GLKVertexAttribTexCoord0, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid *) offsetof(Vertex, TexCoord));
 }
 
-- (void)tearDownGL {
+- (void)_tearDownGL {
     [EAGLContext setCurrentContext:self.context];
     
     glDeleteBuffers(1, &_vertexBuffer);
@@ -278,7 +278,7 @@ CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
 #pragma mark -- Touch --
 //--------------------------------------------------------------//
 
-- (NSIndexPath*)_indexPathFortouchedPoint:(CGPoint)point
+- (NSIndexPath*)_indexPathForTouchedPoint:(CGPoint)point
 {
     CGFloat tx, ty;
     tx = point.x;
@@ -346,7 +346,7 @@ CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
 {
     UITouch *touch = [touches anyObject];
     _touchPoint = [touch locationInView:self.view];
-    _hilightedIndexPath = [self _indexPathFortouchedPoint:_touchPoint];
+    _hilightedIndexPath = [self _indexPathForTouchedPoint:_touchPoint];
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -354,19 +354,23 @@ CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
 
     UITouch *touch = [touches anyObject];
     _touchPoint = [touch locationInView:self.view];
-    _hilightedIndexPath = [self _indexPathFortouchedPoint:_touchPoint];
+    _hilightedIndexPath = [self _indexPathForTouchedPoint:_touchPoint];
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
     _touchPoint = CGPointMake(FLT_MAX, FLT_MAX);
-    _hilightedIndexPath = [self _indexPathFortouchedPoint:_touchPoint];
+    _hilightedIndexPath = [self _indexPathForTouchedPoint:_touchPoint];
+    
+    if ([self.delegate respondsToSelector:@selector(numPadViewControllerDidTouch:)]) {
+        [self.delegate numPadViewControllerDidTouch:_hilightedIndexPath];
+    }
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
 {
     _touchPoint = CGPointMake(FLT_MAX, FLT_MAX);
-    _hilightedIndexPath = [self _indexPathFortouchedPoint:_touchPoint];
+    _hilightedIndexPath = [self _indexPathForTouchedPoint:_touchPoint];
 }
 
 //--------------------------------------------------------------//

@@ -8,6 +8,10 @@
 
 #import <GLKit/GLkit.h>
 
-@interface NKMNumPadViewController : GLKViewController
+@protocol NKMNumPadViewControllerDelegate
+-(void)numPadViewControllerDidTouch:(NSIndexPath*)indexPath;
+@end
 
+@interface NKMNumPadViewController : GLKViewController
+@property (nonatomic, assign) id <GLKViewControllerDelegate, NKMNumPadViewControllerDelegate> delegate;
 @end
