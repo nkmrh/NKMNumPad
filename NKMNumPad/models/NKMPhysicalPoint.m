@@ -9,6 +9,7 @@
 #import "NKMPhysicalPoint.h"
 
 @interface NKMPhysicalPoint () {
+    CGPoint _initialPoint;
   CGFloat _accelerationX;
   CGFloat _accelerationY;
   NSTimeInterval _prevTimeinterval;
@@ -19,6 +20,10 @@
 
 @implementation NKMPhysicalPoint
 
+//--------------------------------------------------------------//
+#pragma mark -- Initialize --
+//--------------------------------------------------------------//
+
 - (instancetype)init {
   return [self initWithPoint:CGPointZero];
 }
@@ -28,22 +33,51 @@
   if (!self) {
     return nil;
   }
-
-  self.position = point;
-  self.resistance = 0.9;
-  _accelerationX = 0;
-  _accelerationY = 0;
-  self.speedX = 0;
-  self.speedY = 0;
-  _prevTimeinterval = [[NSDate date] timeIntervalSince1970];
-
-  _timer = [NSTimer scheduledTimerWithTimeInterval:0.01f
-                                   target:self
-                                 selector:@selector(_loop:)
-                                 userInfo:nil
-                                  repeats:YES];
+    
+    [self _prepareVariables:point];
+    _timer = [self _createTimer];
+    
+    NSNotificationCenter*   center;
+    center = [NSNotificationCenter defaultCenter];
+    [center addObserver:self selector:@selector(_resume:) name:UIApplicationDidBecomeActiveNotification object:nil];
+    [center addObserver:self selector:@selector(_pause:) name:UIApplicationDidEnterBackgroundNotification object:nil];
+    
   return self;
 }
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+//--------------------------------------------------------------//
+#pragma mark -- Private --
+//--------------------------------------------------------------//
+
+- (void)_prepareVariables:(CGPoint)point
+{
+    _initialPoint = point;
+    self.position = point;
+    self.resistance = 0.9;
+    _accelerationX = 0;
+    _accelerationY = 0;
+    self.speedX = 0;
+    self.speedY = 0;
+    _prevTimeinterval = [[NSDate date] timeIntervalSince1970];
+}
+
+- (NSTimer*)_createTimer
+{
+    return [NSTimer scheduledTimerWithTimeInterval:0.01f
+                                     target:self
+                                   selector:@selector(_loop:)
+                                   userInfo:nil
+                                    repeats:YES];
+}
+
+//--------------------------------------------------------------//
+#pragma mark -- Loop --
+//--------------------------------------------------------------//
 
 - (void)_loop:(NSTimer *)timer {
   NSTimeInterval nowInterval = [[NSDate date] timeIntervalSince1970];
@@ -70,6 +104,28 @@
 - (void)configureAccelerationXvalue:(CGFloat)x Yvalue:(CGFloat)y {
   _accelerationX += x;
   _accelerationY += y;
+}
+
+//--------------------------------------------------------------//
+#pragma mark -- Timer --
+//--------------------------------------------------------------//
+
+- (void)_resume:(NSNotification*)notification
+{
+    if (NO == _timer.isValid) {
+        _prevTimeinterval = [[NSDate date] timeIntervalSince1970];
+        _timer = [self _createTimer];
+    }
+}
+
+- (void)_pause:(NSNotification*)notification
+{
+    if (YES == _timer.isValid) {
+        _prevTimeinterval = [[NSDate date] timeIntervalSince1970];
+        [_timer invalidate];
+        _timer = nil;
+        [self _prepareVariables:_initialPoint];
+    }
 }
 
 @end
