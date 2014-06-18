@@ -7,38 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		64641C2B1951140300E459E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64641C291951140300E459E8 /* Main.storyboard */; };
+		64641C2D1951140C00E459E8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64641C2C1951140C00E459E8 /* Images.xcassets */; };
+		64641C301951142800E459E8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 64641C2E1951142800E459E8 /* InfoPlist.strings */; };
 		6474BB661947BE9C0014FBF0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6474BB651947BE9C0014FBF0 /* Foundation.framework */; };
 		6474BB681947BE9C0014FBF0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6474BB671947BE9C0014FBF0 /* CoreGraphics.framework */; };
 		6474BB6A1947BE9C0014FBF0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6474BB691947BE9C0014FBF0 /* UIKit.framework */; };
 		6474BB721947BE9C0014FBF0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6474BB711947BE9C0014FBF0 /* main.m */; };
-		6474BB851947BE9C0014FBF0 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6474BB841947BE9C0014FBF0 /* XCTest.framework */; };
-		6474BB861947BE9C0014FBF0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6474BB651947BE9C0014FBF0 /* Foundation.framework */; };
-		6474BB871947BE9C0014FBF0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6474BB691947BE9C0014FBF0 /* UIKit.framework */; };
-		6474BB8F1947BE9C0014FBF0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6474BB8D1947BE9C0014FBF0 /* InfoPlist.strings */; };
-		6474BB911947BE9C0014FBF0 /* NKMNumPadTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6474BB901947BE9C0014FBF0 /* NKMNumPadTests.m */; };
-		64CFB2B6194EF5A300D326E9 /* 4x3.png in Resources */ = {isa = PBXBuildFile; fileRef = 64CFB2B5194EF5A300D326E9 /* 4x3.png */; };
-		64CFB2B819510B0F00D326E9 /* 4x3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64CFB2B719510B0F00D326E9 /* 4x3@2x.png */; };
 		64CFB2BB19510C3200D326E9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 64CFB2BA19510C3200D326E9 /* AppDelegate.m */; };
-		64CFB2C419510CEB00D326E9 /* NKMNumPadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64CFB2C319510CEB00D326E9 /* NKMNumPadViewController.m */; };
-		64CFB2C719510CF300D326E9 /* NKMPhysicalPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 64CFB2C619510CF300D326E9 /* NKMPhysicalPoint.m */; };
+		64CFB2CA1951133F00D326E9 /* NKMNumPadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64CFB2C91951133F00D326E9 /* NKMNumPadViewController.m */; };
+		64CFB2CD1951136600D326E9 /* NKMPhysicalPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 64CFB2CC1951136600D326E9 /* NKMPhysicalPoint.m */; };
+		64CFB2D01951139F00D326E9 /* 4x3.png in Resources */ = {isa = PBXBuildFile; fileRef = 64CFB2CE1951139F00D326E9 /* 4x3.png */; };
+		64CFB2D11951139F00D326E9 /* 4x3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64CFB2CF1951139F00D326E9 /* 4x3@2x.png */; };
 		64F6C304194A690F00752E81 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64F6C303194A690F00752E81 /* GLKit.framework */; };
 		64F6C306194A691700752E81 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64F6C305194A691700752E81 /* OpenGLES.framework */; };
-		64F6C31A194A6D3B00752E81 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64F6C318194A6D3B00752E81 /* Main.storyboard */; };
-		64F6C31C194A6D4700752E81 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64F6C31B194A6D4700752E81 /* Images.xcassets */; };
-		64F6C31F194A6D6900752E81 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 64F6C31D194A6D6900752E81 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		6474BB881947BE9C0014FBF0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6474BB5A1947BE9C0014FBF0 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6474BB611947BE9C0014FBF0;
-			remoteInfo = HuwaHuwa;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
+		64641C2A1951140300E459E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		64641C2C1951140C00E459E8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		64641C2F1951142800E459E8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6474BB621947BE9C0014FBF0 /* NKMNumPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NKMNumPad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6474BB651947BE9C0014FBF0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6474BB671947BE9C0014FBF0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -46,24 +34,17 @@
 		6474BB6D1947BE9C0014FBF0 /* NKMNumPad-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NKMNumPad-Info.plist"; sourceTree = "<group>"; };
 		6474BB711947BE9C0014FBF0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6474BB731947BE9C0014FBF0 /* NKMNumPad-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NKMNumPad-Prefix.pch"; sourceTree = "<group>"; };
-		6474BB831947BE9C0014FBF0 /* NKMNumPadTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NKMNumPadTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6474BB841947BE9C0014FBF0 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		6474BB8C1947BE9C0014FBF0 /* NKMNumPadTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NKMNumPadTests-Info.plist"; sourceTree = "<group>"; };
-		6474BB8E1947BE9C0014FBF0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		6474BB901947BE9C0014FBF0 /* NKMNumPadTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NKMNumPadTests.m; sourceTree = "<group>"; };
-		64CFB2B5194EF5A300D326E9 /* 4x3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 4x3.png; path = resources/images/4x3.png; sourceTree = "<group>"; };
-		64CFB2B719510B0F00D326E9 /* 4x3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "4x3@2x.png"; path = "resources/images/4x3@2x.png"; sourceTree = "<group>"; };
 		64CFB2B919510C3200D326E9 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		64CFB2BA19510C3200D326E9 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		64CFB2C219510CEB00D326E9 /* NKMNumPadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NKMNumPadViewController.h; sourceTree = "<group>"; };
-		64CFB2C319510CEB00D326E9 /* NKMNumPadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NKMNumPadViewController.m; sourceTree = "<group>"; };
-		64CFB2C519510CF300D326E9 /* NKMPhysicalPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NKMPhysicalPoint.h; sourceTree = "<group>"; };
-		64CFB2C619510CF300D326E9 /* NKMPhysicalPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NKMPhysicalPoint.m; sourceTree = "<group>"; };
+		64CFB2C81951133F00D326E9 /* NKMNumPadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NKMNumPadViewController.h; path = NKMNumPad/NKMNumPadViewController.h; sourceTree = SOURCE_ROOT; };
+		64CFB2C91951133F00D326E9 /* NKMNumPadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NKMNumPadViewController.m; path = NKMNumPad/NKMNumPadViewController.m; sourceTree = SOURCE_ROOT; };
+		64CFB2CB1951136600D326E9 /* NKMPhysicalPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NKMPhysicalPoint.h; path = NKMNumPad/NKMPhysicalPoint.h; sourceTree = SOURCE_ROOT; };
+		64CFB2CC1951136600D326E9 /* NKMPhysicalPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NKMPhysicalPoint.m; path = NKMNumPad/NKMPhysicalPoint.m; sourceTree = SOURCE_ROOT; };
+		64CFB2CE1951139F00D326E9 /* 4x3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 4x3.png; path = NKMNumPad/4x3.png; sourceTree = SOURCE_ROOT; };
+		64CFB2CF1951139F00D326E9 /* 4x3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "4x3@2x.png"; path = "NKMNumPad/4x3@2x.png"; sourceTree = SOURCE_ROOT; };
 		64F6C303194A690F00752E81 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		64F6C305194A691700752E81 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
-		64F6C319194A6D3B00752E81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = resources/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		64F6C31B194A6D4700752E81 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = resources/Images.xcassets; sourceTree = "<group>"; };
-		64F6C31E194A6D6900752E81 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = resources/en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,24 +60,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6474BB801947BE9C0014FBF0 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6474BB851947BE9C0014FBF0 /* XCTest.framework in Frameworks */,
-				6474BB871947BE9C0014FBF0 /* UIKit.framework in Frameworks */,
-				6474BB861947BE9C0014FBF0 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		6474BB591947BE9C0014FBF0 = {
 			isa = PBXGroup;
 			children = (
-				6474BB6B1947BE9C0014FBF0 /* NKMNumPad */,
-				6474BB8A1947BE9C0014FBF0 /* NKMNumPadTests */,
+				6474BB6B1947BE9C0014FBF0 /* DEMO */,
 				6474BB641947BE9C0014FBF0 /* Frameworks */,
 				6474BB631947BE9C0014FBF0 /* Products */,
 			);
@@ -106,7 +76,6 @@
 			isa = PBXGroup;
 			children = (
 				6474BB621947BE9C0014FBF0 /* NKMNumPad.app */,
-				6474BB831947BE9C0014FBF0 /* NKMNumPadTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -124,7 +93,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		6474BB6B1947BE9C0014FBF0 /* NKMNumPad */ = {
+		6474BB6B1947BE9C0014FBF0 /* DEMO */ = {
 			isa = PBXGroup;
 			children = (
 				64CFB2B919510C3200D326E9 /* AppDelegate.h */,
@@ -135,34 +104,16 @@
 				64F6C317194A6D2100752E81 /* resources */,
 				6474BB6C1947BE9C0014FBF0 /* Supporting Files */,
 			);
-			path = NKMNumPad;
+			path = DEMO;
 			sourceTree = "<group>";
 		};
 		6474BB6C1947BE9C0014FBF0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
 				6474BB6D1947BE9C0014FBF0 /* NKMNumPad-Info.plist */,
-				64F6C31D194A6D6900752E81 /* InfoPlist.strings */,
+				64641C2E1951142800E459E8 /* InfoPlist.strings */,
 				6474BB711947BE9C0014FBF0 /* main.m */,
 				6474BB731947BE9C0014FBF0 /* NKMNumPad-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		6474BB8A1947BE9C0014FBF0 /* NKMNumPadTests */ = {
-			isa = PBXGroup;
-			children = (
-				6474BB901947BE9C0014FBF0 /* NKMNumPadTests.m */,
-				6474BB8B1947BE9C0014FBF0 /* Supporting Files */,
-			);
-			path = NKMNumPadTests;
-			sourceTree = "<group>";
-		};
-		6474BB8B1947BE9C0014FBF0 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				6474BB8C1947BE9C0014FBF0 /* NKMNumPadTests-Info.plist */,
-				6474BB8D1947BE9C0014FBF0 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -170,8 +121,8 @@
 		64F6C308194A6CD700752E81 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
-				64CFB2C219510CEB00D326E9 /* NKMNumPadViewController.h */,
-				64CFB2C319510CEB00D326E9 /* NKMNumPadViewController.m */,
+				64CFB2C81951133F00D326E9 /* NKMNumPadViewController.h */,
+				64CFB2C91951133F00D326E9 /* NKMNumPadViewController.m */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -186,8 +137,8 @@
 		64F6C313194A6CF300752E81 /* models */ = {
 			isa = PBXGroup;
 			children = (
-				64CFB2C519510CF300D326E9 /* NKMPhysicalPoint.h */,
-				64CFB2C619510CF300D326E9 /* NKMPhysicalPoint.m */,
+				64CFB2CB1951136600D326E9 /* NKMPhysicalPoint.h */,
+				64CFB2CC1951136600D326E9 /* NKMPhysicalPoint.m */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -195,10 +146,10 @@
 		64F6C317194A6D2100752E81 /* resources */ = {
 			isa = PBXGroup;
 			children = (
-				64CFB2B5194EF5A300D326E9 /* 4x3.png */,
-				64CFB2B719510B0F00D326E9 /* 4x3@2x.png */,
-				64F6C31B194A6D4700752E81 /* Images.xcassets */,
-				64F6C318194A6D3B00752E81 /* Main.storyboard */,
+				64CFB2CE1951139F00D326E9 /* 4x3.png */,
+				64CFB2CF1951139F00D326E9 /* 4x3@2x.png */,
+				64641C2C1951140C00E459E8 /* Images.xcassets */,
+				64641C291951140300E459E8 /* Main.storyboard */,
 			);
 			name = resources;
 			sourceTree = "<group>";
@@ -223,24 +174,6 @@
 			productReference = 6474BB621947BE9C0014FBF0 /* NKMNumPad.app */;
 			productType = "com.apple.product-type.application";
 		};
-		6474BB821947BE9C0014FBF0 /* NKMNumPadTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 6474BB971947BE9C0014FBF0 /* Build configuration list for PBXNativeTarget "NKMNumPadTests" */;
-			buildPhases = (
-				6474BB7F1947BE9C0014FBF0 /* Sources */,
-				6474BB801947BE9C0014FBF0 /* Frameworks */,
-				6474BB811947BE9C0014FBF0 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				6474BB891947BE9C0014FBF0 /* PBXTargetDependency */,
-			);
-			name = NKMNumPadTests;
-			productName = HuwaHuwaTests;
-			productReference = 6474BB831947BE9C0014FBF0 /* NKMNumPadTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -249,11 +182,6 @@
 			attributes = {
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "hajime-nakamura";
-				TargetAttributes = {
-					6474BB821947BE9C0014FBF0 = {
-						TestTargetID = 6474BB611947BE9C0014FBF0;
-					};
-				};
 			};
 			buildConfigurationList = 6474BB5D1947BE9C0014FBF0 /* Build configuration list for PBXProject "NKMNumPad" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -269,7 +197,6 @@
 			projectRoot = "";
 			targets = (
 				6474BB611947BE9C0014FBF0 /* NKMNumPad */,
-				6474BB821947BE9C0014FBF0 /* NKMNumPadTests */,
 			);
 		};
 /* End PBXProject section */
@@ -279,19 +206,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				64F6C31C194A6D4700752E81 /* Images.xcassets in Resources */,
-				64F6C31F194A6D6900752E81 /* InfoPlist.strings in Resources */,
-				64CFB2B6194EF5A300D326E9 /* 4x3.png in Resources */,
-				64CFB2B819510B0F00D326E9 /* 4x3@2x.png in Resources */,
-				64F6C31A194A6D3B00752E81 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6474BB811947BE9C0014FBF0 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6474BB8F1947BE9C0014FBF0 /* InfoPlist.strings in Resources */,
+				64641C2B1951140300E459E8 /* Main.storyboard in Resources */,
+				64CFB2D11951139F00D326E9 /* 4x3@2x.png in Resources */,
+				64641C2D1951140C00E459E8 /* Images.xcassets in Resources */,
+				64CFB2D01951139F00D326E9 /* 4x3.png in Resources */,
+				64641C301951142800E459E8 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,52 +221,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64CFB2CD1951136600D326E9 /* NKMPhysicalPoint.m in Sources */,
 				6474BB721947BE9C0014FBF0 /* main.m in Sources */,
-				64CFB2C719510CF300D326E9 /* NKMPhysicalPoint.m in Sources */,
-				64CFB2C419510CEB00D326E9 /* NKMNumPadViewController.m in Sources */,
+				64CFB2CA1951133F00D326E9 /* NKMNumPadViewController.m in Sources */,
 				64CFB2BB19510C3200D326E9 /* AppDelegate.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6474BB7F1947BE9C0014FBF0 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6474BB911947BE9C0014FBF0 /* NKMNumPadTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		6474BB891947BE9C0014FBF0 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 6474BB611947BE9C0014FBF0 /* NKMNumPad */;
-			targetProxy = 6474BB881947BE9C0014FBF0 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
-		6474BB8D1947BE9C0014FBF0 /* InfoPlist.strings */ = {
+		64641C291951140300E459E8 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				6474BB8E1947BE9C0014FBF0 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		64F6C318194A6D3B00752E81 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				64F6C319194A6D3B00752E81 /* Base */,
+				64641C2A1951140300E459E8 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		64F6C31D194A6D6900752E81 /* InfoPlist.strings */ = {
+		64641C2E1951142800E459E8 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				64F6C31E194A6D6900752E81 /* en */,
+				64641C2F1951142800E459E8 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -431,8 +326,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "NKMNumPad/NKMNumPad-Prefix.pch";
-				INFOPLIST_FILE = "$(SRCROOT)/NKMNumPad/NKMNumPad-Info.plist";
+				GCC_PREFIX_HEADER = "DEMO/NKMNumPad-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/DEMO/NKMNumPad-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = NKMNumPad;
 				WRAPPER_EXTENSION = app;
@@ -445,51 +340,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "NKMNumPad/NKMNumPad-Prefix.pch";
-				INFOPLIST_FILE = "$(SRCROOT)/NKMNumPad/NKMNumPad-Info.plist";
+				GCC_PREFIX_HEADER = "DEMO/NKMNumPad-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/DEMO/NKMNumPad-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = NKMNumPad;
 				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-		6474BB981947BE9C0014FBF0 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/HuwaHuwa.app/HuwaHuwa";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "HuwaHuwa/HuwaHuwa-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "HuwaHuwaTests/NKMNumPadTests-Info.plist";
-				PRODUCT_NAME = NKMNumPadTests;
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		6474BB991947BE9C0014FBF0 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/HuwaHuwa.app/HuwaHuwa";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "HuwaHuwa/HuwaHuwa-Prefix.pch";
-				INFOPLIST_FILE = "HuwaHuwaTests/NKMNumPadTests-Info.plist";
-				PRODUCT_NAME = NKMNumPadTests;
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
 		};
@@ -510,15 +365,6 @@
 			buildConfigurations = (
 				6474BB951947BE9C0014FBF0 /* Debug */,
 				6474BB961947BE9C0014FBF0 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		6474BB971947BE9C0014FBF0 /* Build configuration list for PBXNativeTarget "NKMNumPadTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				6474BB981947BE9C0014FBF0 /* Debug */,
-				6474BB991947BE9C0014FBF0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

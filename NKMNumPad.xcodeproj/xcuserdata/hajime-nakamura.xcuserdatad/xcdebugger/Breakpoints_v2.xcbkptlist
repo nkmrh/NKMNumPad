@@ -41,7 +41,7 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NKMNumPad/models/NKMPhysicalPoint.m"
+            filePath = "DEMO/models/NKMPhysicalPoint.m"
             timestampString = "424740945.572367"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
