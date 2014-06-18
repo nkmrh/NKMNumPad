@@ -99,7 +99,6 @@
 				64CFB2B919510C3200D326E9 /* AppDelegate.h */,
 				64CFB2BA19510C3200D326E9 /* AppDelegate.m */,
 				64F6C313194A6CF300752E81 /* models */,
-				64F6C30F194A6CE800752E81 /* views */,
 				64F6C308194A6CD700752E81 /* controllers */,
 				64F6C317194A6D2100752E81 /* resources */,
 				6474BB6C1947BE9C0014FBF0 /* Supporting Files */,
@@ -125,13 +124,6 @@
 				64CFB2C91951133F00D326E9 /* NKMNumPadViewController.m */,
 			);
 			path = controllers;
-			sourceTree = "<group>";
-		};
-		64F6C30F194A6CE800752E81 /* views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = views;
 			sourceTree = "<group>";
 		};
 		64F6C313194A6CF300752E81 /* models */ = {
