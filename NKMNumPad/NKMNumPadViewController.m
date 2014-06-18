@@ -157,22 +157,8 @@ CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
 #pragma mark -- Initialize --
 //--------------------------------------------------------------//
 
-- (void)dealloc
+- (void)_initializeInstanceVariables
 {
-    [self _tearDownGL];
-    if ([EAGLContext currentContext] == self.context) {
-        [EAGLContext setCurrentContext:nil];
-    }
-    self.context = nil;
-}
-
-//--------------------------------------------------------------//
-#pragma mark -- View --
-//--------------------------------------------------------------//
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
     _points = [NSMutableArray new];
     _locations = [NSMutableArray new];
     _touchPoint = CGPointMake(FLT_MAX, FLT_MAX);
@@ -194,12 +180,17 @@ CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
             [_locations addObject:[NSValue valueWithCGPoint:location]];
         }
     }
-    [self _setupGL];
 }
+
+//--------------------------------------------------------------//
+#pragma mark -- View --
+//--------------------------------------------------------------//
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self _initializeInstanceVariables];
+    [self _setupGL];
     [self _registerNotifiactionObserver];
 }
 
@@ -207,6 +198,7 @@ CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
 {
     [super viewWillDisappear:animated];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [self _tearDownGL];
 }
 
 //--------------------------------------------------------------//
