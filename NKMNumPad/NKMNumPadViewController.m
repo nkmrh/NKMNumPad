@@ -417,8 +417,8 @@ CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
     _touchPoint = CGPointMake(FLT_MAX, FLT_MAX);
     _hilightedIndexPath = [self _indexPathForTouchedPoint:_touchPoint];
     
-    if ([self.delegate respondsToSelector:@selector(numPadViewControllerDidTouch:)]) {
-        [self.delegate numPadViewControllerDidTouch:_hilightedIndexPath];
+    if ([(id)self.touchDelegate respondsToSelector:@selector(numPadViewControllerDidTouch:)]) {
+        [self.touchDelegate numPadViewControllerDidTouch:_hilightedIndexPath];
     }
 }
 
