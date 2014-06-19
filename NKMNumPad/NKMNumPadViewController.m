@@ -414,12 +414,12 @@ CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    _touchPoint = CGPointMake(FLT_MAX, FLT_MAX);
-    _hilightedIndexPath = [self _indexPathForTouchedPoint:_touchPoint];
-    
     if ([(id)self.touchDelegate respondsToSelector:@selector(numPadViewControllerDidTouch:)]) {
         [self.touchDelegate numPadViewControllerDidTouch:_hilightedIndexPath];
     }
+    
+    _touchPoint = CGPointMake(FLT_MAX, FLT_MAX);
+    _hilightedIndexPath = [self _indexPathForTouchedPoint:_touchPoint];
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
