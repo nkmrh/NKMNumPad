@@ -206,7 +206,7 @@ CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
     [super viewDidLoad];
     
     _clearColor = [UIColor clearColor];
-    _hilightColor = [UIColor colorWithWhite:0.0f alpha:0.5f];
+    _hilightColor = [UIColor colorWithWhite:1.0f alpha:0.8f];
     _tintColor = [UIColor whiteColor];
 }
 
