@@ -180,11 +180,35 @@ CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
             [_locations addObject:[NSValue valueWithCGPoint:location]];
         }
     }
+    
+    CGFloat red, green, blue, alpha;
+    [_hilightColor getRed:&red green:&green blue:&blue alpha:&alpha];
+    for (int i = 0; i < sizeof(vertices2) / sizeof(vertices2[0]); i++) {
+        vertices2[i].Color[0] = red;
+        vertices2[i].Color[1] = green;
+        vertices2[i].Color[2] = blue;
+        vertices2[i].Color[3] = alpha;
+    }
+    for (int i = 0; i < sizeof(vertices3) / sizeof(vertices3[0]); i++) {
+        vertices3[i].Color[0] = red;
+        vertices3[i].Color[1] = green;
+        vertices3[i].Color[2] = blue;
+        vertices3[i].Color[3] = alpha;
+    }
 }
 
 //--------------------------------------------------------------//
 #pragma mark -- View --
 //--------------------------------------------------------------//
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    _clearColor = [UIColor clearColor];
+    _hilightColor = [UIColor colorWithWhite:0.0f alpha:0.5f];
+    _tintColor = [UIColor whiteColor];
+}
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -251,9 +275,15 @@ CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
     }
     self.effect.texture2d0.name = info.name;
     self.effect.texture2d0.enabled = GL_TRUE;
+    
+    CGFloat red, green, blue, alpha;
+    [_tintColor getRed:&red green:&green blue:&blue alpha:&alpha];
+    self.effect.constantColor = GLKVector4Make(red, green, blue, alpha);
+    
     self.effect.transform.projectionMatrix = GLKMatrix4MakeOrtho(CGRectGetMinX(self.view.bounds), CGRectGetMaxX(self.view.bounds), CGRectGetMaxY(self.view.bounds), CGRectGetMinY(self.view.bounds), -1.0f, 1.0f);
     
-    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+    [_clearColor getRed:&red green:&green blue:&blue alpha:&alpha];
+    glClearColor(red, green, blue, alpha);
     
     glGenVertexArraysOES(1, &_vertexArray);
     glBindVertexArrayOES(_vertexArray);
@@ -487,11 +517,19 @@ CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
     glEnable (GL_BLEND);
     glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     
+    // ----------------------------------------------------------------------
+    
     self.effect.texture2d0.enabled = GL_FALSE;
     [self.effect prepareToDraw];
     
     glEnableVertexAttribArray(GLKVertexAttribPosition);
     glEnableVertexAttribArray(GLKVertexAttribColor);
+    
+    // ----------------------------------------------------------------------
+    
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices2), vertices2, GL_DYNAMIC_DRAW);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices2), indices2, GL_DYNAMIC_DRAW);
+    glDrawElements(GL_TRIANGLES , sizeof(indices2)/sizeof(indices2[0]), GL_UNSIGNED_BYTE , 0);
     
     // ----------------------------------------------------------------------
     
@@ -501,12 +539,6 @@ CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
     
     // ----------------------------------------------------------------------
     
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices2), vertices2, GL_DYNAMIC_DRAW);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices2), indices2, GL_DYNAMIC_DRAW);
-    glDrawElements(GL_TRIANGLES , sizeof(indices2)/sizeof(indices2[0]), GL_UNSIGNED_BYTE , 0);
-    
-    // ----------------------------------------------------------------------
-
     self.effect.texture2d0.enabled = GL_TRUE;
     [self.effect prepareToDraw];
     
