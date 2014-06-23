@@ -436,21 +436,26 @@ CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
 {
     // Update physical points
     for (int i = 0; i < _points.count; i++) {
+        
+        float backForce, forwardForce;
+        backForce = 400;
+        forwardForce = 70;
+        
         NKMPhysicalPoint *point = _points[i];
         
         CGPoint position = point.position;
         CGPoint location = [_locations[i] CGPointValue];
-        [point configureAccelerationXvalue:(location.x - position.x) * 400
-                                    Yvalue:(location.y - position.y) * 400];
+        [point configureAccelerationXvalue:(location.x - position.x) * backForce
+                                    Yvalue:(location.y - position.y) * backForce];
         
-        CGFloat maxDist = 105.0f;
+        CGFloat maxDist = 120.0f;
         CGFloat dist = DistanceBetweenTwoPoints(position, _touchPoint);
         
         if (dist < maxDist) {
             CGFloat par = (maxDist - dist) / maxDist;
             [point
-             configureAccelerationXvalue:(position.x - _touchPoint.x) * par * 200
-             Yvalue:(position.y - _touchPoint.y) * par * 200];
+             configureAccelerationXvalue:(position.x - _touchPoint.x) * par * forwardForce
+             Yvalue:(position.y - _touchPoint.y) * par * forwardForce];
         }
         
         [point updateWithInterval:self.timeSinceLastUpdate];
