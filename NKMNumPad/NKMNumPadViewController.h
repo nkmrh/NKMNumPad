@@ -13,7 +13,7 @@
 @end
 
 @interface NKMNumPadViewController : GLKViewController
-@property (nonatomic, assign) id <NKMNumPadViewControllerDelegate> touchDelegate;
+@property (nonatomic, weak) id <NKMNumPadViewControllerDelegate> touchDelegate;
 @property (nonatomic) UIColor *clearColor;
 @property (nonatomic) UIColor *hilightColor;
 @property (nonatomic) UIColor *tintColor;
