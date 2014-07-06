@@ -128,9 +128,9 @@ CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
 
 @interface NKMNumPadViewController ()
 {
-  NSMutableArray *_points;
-  NSMutableArray *_locations;
-  CGPoint _touchPoint;
+    NSMutableArray *_points;
+    NSMutableArray *_locations;
+    CGPoint _touchPoint;
     NSIndexPath *_hilightedIndexPath;
     
     GLuint _vertexBuffer;
@@ -144,6 +144,8 @@ CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
     GLuint _vertexBuffer3;
     GLuint _indexBuffer3;
     GLuint _vertexArray3;
+    
+    CGFloat _verticalMargin;
 }
 
 @property(nonatomic) EAGLContext *context;
@@ -162,9 +164,10 @@ CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
     _points = [NSMutableArray new];
     _locations = [NSMutableArray new];
     _touchPoint = CGPointMake(FLT_MAX, FLT_MAX);
+    _verticalMargin = 20;
     
     const CGFloat intervalX = CGRectGetWidth(self.view.bounds) / kNKMNumPadColumnMax;
-    const CGFloat intervalY = CGRectGetHeight(self.view.bounds) / kNKMNumPadRowMax;
+    const CGFloat intervalY = (CGRectGetHeight(self.view.bounds) - _verticalMargin) / kNKMNumPadRowMax;
     const NSInteger col = kNKMNumPadColumnMax + 1;
     const NSInteger row = kNKMNumPadRowMax + 1;
     
