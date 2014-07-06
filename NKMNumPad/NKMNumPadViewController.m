@@ -164,7 +164,7 @@ CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
     _points = [NSMutableArray new];
     _locations = [NSMutableArray new];
     _touchPoint = CGPointMake(FLT_MAX, FLT_MAX);
-    _verticalMargin = 20;
+    _verticalMargin = 40;
     
     const CGFloat intervalX = CGRectGetWidth(self.view.bounds) / kNKMNumPadColumnMax;
     const CGFloat intervalY = (CGRectGetHeight(self.view.bounds) - _verticalMargin) / kNKMNumPadRowMax;

@@ -73,6 +73,13 @@
     
     _accelerationX = 0.0;
     _accelerationY = 0.0;
+    
+    if (_position.x < 0) {
+        _position.x = 0;
+    }
+    if (_position.x > 320) {
+        _position.x = 320;
+    }
 }
 
 - (void)configureAccelerationXvalue:(CGFloat)x Yvalue:(CGFloat)y {
