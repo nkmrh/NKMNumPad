@@ -271,7 +271,29 @@ CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2) {
                               GLKTextureLoaderOriginBottomLeft,
                               nil];
     NSError * error;
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"4x3" ofType:@"png"];
+    NSString *path;
+    NSString *fileName;
+    CGRect frame = [[UIScreen mainScreen] applicationFrame];
+    if(frame.size.height == 548.0f){
+        // For 4inch
+        if ([UIScreen mainScreen].scale == 2.0f) {
+            fileName = (!self.imageNameFor4Inch) ? @"4x3@2x" : self.imageNameFor4Inch;
+        }
+        else {
+            fileName = (!self.imageNameFor4Inch) ? @"4x3" : self.imageNameFor4Inch;
+        }
+        path = [[NSBundle mainBundle] pathForResource:fileName ofType:@"png"];
+    } else {
+        // For 3.5inch
+        if ([UIScreen mainScreen].scale == 2.0f) {
+            fileName = (!self.imageNameFor3_5Inch) ? @"4x3_3_5@2x" : self.imageNameFor3_5Inch;
+        }
+        else {
+            fileName = (!self.imageNameFor3_5Inch) ? @"4x3_3_5" : self.imageNameFor3_5Inch;
+        }
+        path = [[NSBundle mainBundle] pathForResource:fileName ofType:@"png"];
+    }
+
     GLKTextureInfo * info = [GLKTextureLoader textureWithContentsOfFile:path options:options error:&error];
     if (info == nil) {
         NSLog(@"Error loading file: %@", [error localizedDescription]);

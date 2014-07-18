@@ -17,10 +17,10 @@
 		64CFB2BB19510C3200D326E9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 64CFB2BA19510C3200D326E9 /* AppDelegate.m */; };
 		64CFB2CA1951133F00D326E9 /* NKMNumPadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64CFB2C91951133F00D326E9 /* NKMNumPadViewController.m */; };
 		64CFB2CD1951136600D326E9 /* NKMPhysicalPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 64CFB2CC1951136600D326E9 /* NKMPhysicalPoint.m */; };
-		64CFB2D01951139F00D326E9 /* 4x3.png in Resources */ = {isa = PBXBuildFile; fileRef = 64CFB2CE1951139F00D326E9 /* 4x3.png */; };
-		64CFB2D11951139F00D326E9 /* 4x3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64CFB2CF1951139F00D326E9 /* 4x3@2x.png */; };
+		64E502851978F74D00FFBB24 /* 4x3_3_5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64E502841978F74D00FFBB24 /* 4x3_3_5@2x.png */; };
 		64F6C304194A690F00752E81 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64F6C303194A690F00752E81 /* GLKit.framework */; };
 		64F6C306194A691700752E81 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64F6C305194A691700752E81 /* OpenGLES.framework */; };
+		64FD707E197677390026A9CD /* 4x3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64FD707C197677390026A9CD /* 4x3@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,10 +41,10 @@
 		64CFB2C91951133F00D326E9 /* NKMNumPadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NKMNumPadViewController.m; path = NKMNumPad/NKMNumPadViewController.m; sourceTree = SOURCE_ROOT; };
 		64CFB2CB1951136600D326E9 /* NKMPhysicalPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NKMPhysicalPoint.h; path = NKMNumPad/NKMPhysicalPoint.h; sourceTree = SOURCE_ROOT; };
 		64CFB2CC1951136600D326E9 /* NKMPhysicalPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NKMPhysicalPoint.m; path = NKMNumPad/NKMPhysicalPoint.m; sourceTree = SOURCE_ROOT; };
-		64CFB2CE1951139F00D326E9 /* 4x3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 4x3.png; path = NKMNumPad/4x3.png; sourceTree = SOURCE_ROOT; };
-		64CFB2CF1951139F00D326E9 /* 4x3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "4x3@2x.png"; path = "NKMNumPad/4x3@2x.png"; sourceTree = SOURCE_ROOT; };
+		64E502841978F74D00FFBB24 /* 4x3_3_5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "4x3_3_5@2x.png"; path = "NKMNumPad/4x3_3_5@2x.png"; sourceTree = SOURCE_ROOT; };
 		64F6C303194A690F00752E81 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		64F6C305194A691700752E81 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		64FD707C197677390026A9CD /* 4x3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "4x3@2x.png"; path = "NKMNumPad/4x3@2x.png"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,8 +138,8 @@
 		64F6C317194A6D2100752E81 /* resources */ = {
 			isa = PBXGroup;
 			children = (
-				64CFB2CE1951139F00D326E9 /* 4x3.png */,
-				64CFB2CF1951139F00D326E9 /* 4x3@2x.png */,
+				64FD707C197677390026A9CD /* 4x3@2x.png */,
+				64E502841978F74D00FFBB24 /* 4x3_3_5@2x.png */,
 				64641C2C1951140C00E459E8 /* Images.xcassets */,
 				64641C291951140300E459E8 /* Main.storyboard */,
 			);
@@ -199,10 +199,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				64641C2B1951140300E459E8 /* Main.storyboard in Resources */,
-				64CFB2D11951139F00D326E9 /* 4x3@2x.png in Resources */,
 				64641C2D1951140C00E459E8 /* Images.xcassets in Resources */,
-				64CFB2D01951139F00D326E9 /* 4x3.png in Resources */,
+				64E502851978F74D00FFBB24 /* 4x3_3_5@2x.png in Resources */,
 				64641C301951142800E459E8 /* InfoPlist.strings in Resources */,
+				64FD707E197677390026A9CD /* 4x3@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
